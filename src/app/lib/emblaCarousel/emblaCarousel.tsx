@@ -8,11 +8,20 @@ import img3 from "./content/img 3.png";
 import img4 from "./content/img 4.png";
 import img5 from "./content/img 5.png";
 import img6 from "./content/img 6.png";
+import { media } from "@/constants/media";
 
 const Embla = styled.div`
   overflow: hidden;
   margin-top: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
+
+  ${media.tablet} {
+    margin-top: 40px;
+  }
+
+  ${media.phone} {
+    margin-top: 40px;
+  }
 `;
 
 const Embla__container = styled.div`
@@ -29,6 +38,14 @@ const Img = styled.img`
   height: 500px;
   object-fit: cover;
   width: 100%;
+
+  ${media.tablet} {
+    height: 300px;
+  }
+
+  ${media.phone} {
+    height: 200px;
+  }
 `;
 
 export function EmblaCarousel() {
