@@ -57,14 +57,7 @@ export default function Home() {
         />
       </WrapperProductCard>
       <WrapperProductCard>
-        <motion.button
-          className="box"
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
-          <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
-        </motion.button>
+        <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
       </WrapperProductCard>
     </div>
   );
