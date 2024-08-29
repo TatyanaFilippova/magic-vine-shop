@@ -2,12 +2,14 @@ import styled from "styled-components";
 import imgHomeBlock from "./imgHomeBlock.png";
 import { Fade } from "react-awesome-reveal";
 import { media } from "@/constants/media";
+import { layout } from "@/constants/layout";
 
 const Wrapper = styled.div`
   display: flex;
   margin: 0 0 140px 40px;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
+  ${layout};
 
   ${media.tablet} {
     text-align: center;
@@ -35,8 +37,7 @@ const Text = styled.div`
 `;
 
 const Img = styled.img`
-  height: 686px;
-  width: 610px;
+  width: 50%;
   object-fit: cover;
 
   ${media.tablet} {
@@ -53,6 +54,7 @@ const Img = styled.img`
 const WrapperText = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 20%;
 `;
 
 const HomeBlock = () => {

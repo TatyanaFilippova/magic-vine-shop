@@ -2,12 +2,14 @@ import styled from "styled-components";
 import imgHomeBlockSecond from "./imgHomeBlockSecond.png";
 import { Fade } from "react-awesome-reveal";
 import { media } from "@/constants/media";
+import { layout } from "@/constants/layout";
 
 const Wrapper = styled.div`
   display: flex;
-  margin: 0 40px 140px 0;
-  align-items: end;
+  margin: -300px 40px 140px 0;
+  align-items: center;
   justify-content: space-between;
+  ${layout};
 
   ${media.tablet} {
     text-align: center;
@@ -30,8 +32,7 @@ const Text = styled.div`
 `;
 
 const Img = styled.img`
-  height: 686px;
-  width: 610px;
+  width: 55%;
   object-fit: cover;
 
   ${media.tablet} {
@@ -48,6 +49,7 @@ const Img = styled.img`
 const WrapperText = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 20%;
 `;
 
 const HomeBlockSecond = () => {
