@@ -6,7 +6,11 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
+  width: 25%;
+
+  & > * {
+    width: 100%;
+  }
 `;
 
 const ImgCard = styled.img`
@@ -26,6 +30,22 @@ const Title = styled.div`
 const Description = styled.div`
   font-size: 20px;
   text-align: center;
+`;
+
+export const ButtonProductCard = styled.button`
+  background: #526468;
+  font-size: 20px;
+  width: 300px;
+  color: white;
+  align-items: center;
+  margin-bottom: 50px;
+  height: 60px;
+  margin-top: 50px;
+`;
+
+export const WrapperButtonProductCard = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 interface ProductCardProps {

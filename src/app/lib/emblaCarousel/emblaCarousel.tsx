@@ -12,8 +12,10 @@ import { media } from "@/constants/media";
 
 const Embla = styled.div`
   overflow: hidden;
-  margin-top: 80px;
-  margin-bottom: 80px;
+
+  margin-bottom: 60px;
+
+  padding-bottom: 40px;
 
   ${media.tablet} {
     margin-top: 40px;
