@@ -1,5 +1,6 @@
 import { media } from "@/constants/media";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Title = styled.div`
   font-size: 80px;
@@ -54,6 +55,7 @@ const HomeBanner = () => {
         Создайте атмосферу уюта с помощью наших плетеных <br /> корзинок из
         бумажной лозы!
       </Description>
+
       <Button>Перейти в каталог</Button>
     </Wrapper>
   );

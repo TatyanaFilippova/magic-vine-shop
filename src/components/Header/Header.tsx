@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import icon from "./icon.png";
 import { media } from "@/constants/media";
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
   display: flex;
