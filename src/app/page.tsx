@@ -15,7 +15,8 @@ import wickerPouf from "../images/wickerPouf.png";
 import { layout } from "@/constants/layout";
 import WickerBasketForTheKitchen from "../images/WickerBasketForTheKitchen.png";
 import RunningLine from "@/components/RunningLine/RunningLine";
-import { motion } from "framer-motion";
+
+import Link from "next/link";
 
 const WrapperProductCard = styled.div`
   display: flex;
@@ -24,6 +25,10 @@ const WrapperProductCard = styled.div`
   padding-top: 20px;
 
   ${layout}
+`;
+
+const WrapperProductCardColumn = styled.div`
+  width: 25%;
 `;
 
 export default function Home() {
@@ -38,26 +43,34 @@ export default function Home() {
       <HomeBlockSecond />
       <HomeTextBlock />
       <WrapperProductCard>
-        <ProductCard
-          imgCard={basketWithLid.src}
-          title={"Плетеная корзинка с крышкой"}
-          description={"Размеры: 18 см * 28 см, высота - 9 см"}
-        />
-        <ProductCard
-          imgCard={wickerPouf.src}
-          title={"Плетеный пуф"}
-          description={
-            "Размеры: диаметр - 36см, высота ножек - 23 см, высота пуфа - 40см"
-          }
-        />
-        <ProductCard
-          imgCard={WickerBasketForTheKitchen.src}
-          title={"Плетеная корзинка для кухни"}
-          description={"Размеры: 14 см * 20 см, высота - 9 см"}
-        />
+        <WrapperProductCardColumn>
+          <ProductCard
+            imgCard={basketWithLid.src}
+            title={"Плетеная корзинка с крышкой"}
+            description={"Размеры: 18 см * 28 см, высота - 9 см"}
+          />
+        </WrapperProductCardColumn>
+        <WrapperProductCardColumn>
+          <ProductCard
+            imgCard={wickerPouf.src}
+            title={"Плетеный пуф"}
+            description={
+              "Размеры: диаметр - 36см, высота ножек - 23 см, высота пуфа - 40см"
+            }
+          />
+        </WrapperProductCardColumn>
+        <WrapperProductCardColumn>
+          <ProductCard
+            imgCard={WickerBasketForTheKitchen.src}
+            title={"Плетеная корзинка для кухни"}
+            description={"Размеры: 14 см * 20 см, высота - 9 см"}
+          />
+        </WrapperProductCardColumn>
       </WrapperProductCard>
       <WrapperProductCard>
-        <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
+        <Link href="/catalog">
+          <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
+        </Link>
       </WrapperProductCard>
     </div>
   );

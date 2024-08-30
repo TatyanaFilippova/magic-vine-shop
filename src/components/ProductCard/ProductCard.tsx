@@ -6,7 +6,6 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
 
   & > * {
     width: 100%;
@@ -52,9 +51,24 @@ interface ProductCardProps {
   imgCard: string;
   title: string;
   description: string;
+  button?: string;
 }
 
-const ProductCard: FC<ProductCardProps> = ({ imgCard, title, description }) => {
+const Button = styled.button`
+  background-color: #526468;
+  color: white;
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 20px;
+`;
+
+const ProductCard: FC<ProductCardProps> = ({
+  imgCard,
+  title,
+  description,
+  button,
+}) => {
   return (
     <Card>
       <motion.div
@@ -65,6 +79,7 @@ const ProductCard: FC<ProductCardProps> = ({ imgCard, title, description }) => {
       </motion.div>
       <Title>{title}</Title>
       <Description>{description}</Description>
+      {button && <Button>{button}</Button>}
     </Card>
   );
 };
