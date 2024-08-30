@@ -1,6 +1,6 @@
 import { media } from "@/constants/media";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Title = styled.div`
   font-size: 80px;
@@ -56,7 +56,9 @@ const HomeBanner = () => {
         бумажной лозы!
       </Description>
 
-      <Button>Перейти в каталог</Button>
+      <Link href="/catalog">
+        <Button>Перейти в каталог</Button>
+      </Link>
     </Wrapper>
   );
 };
