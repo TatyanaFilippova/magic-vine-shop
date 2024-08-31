@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 const WrapperFilters = styled.div`
@@ -39,6 +40,11 @@ interface ProductResult {
   imgUrl: string;
 }
 
+const WrapperProductCardColumn = styled.div`
+  width: 35%;
+  padding-bottom: 50px;
+`;
+
 const CatalogCardProduct = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["posts"],
@@ -47,12 +53,14 @@ const CatalogCardProduct = () => {
   if (!data) return null;
   const product = data.map(function (item: ProductResult) {
     return (
-      <ProductCard
-        description={item.description}
-        title={item.title}
-        imgCard={item.imgUrl}
-        button="Подробнее"
-      />
+      <WrapperProductCardColumn>
+        <ProductCard
+          description={item.description}
+          title={item.title}
+          imgCard={item.imgUrl}
+          button="Подробнее"
+        />
+      </WrapperProductCardColumn>
     );
   });
   return (
