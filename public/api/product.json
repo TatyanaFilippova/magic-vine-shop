@@ -1,12 +1,74 @@
 [
   {
-    "title": "Плетеная корзинка с крышкой",
-    "description": "Размеры: 18 см * 28 см, высота - 9 см",
+    "title": "Корзинка с крышкой",
+    "description": "Размеры: ширина - 18 см, длина - 28 см, высота - 9 см",
     "imgUrl": "/images/basketWithLid.png"
   },
   {
-    "title": "Плетеная корзинка с крышкой",
-    "description": "Размеры: 18 см * 28 см, высота - 9 см",
-    "imgUrl": "/images/basketWithLid.png"
+    "title": "Хлебница",
+    "description": "Размеры: диаметр подноса - 31 см, высота хлебницы - 16 см",
+    "imgUrl": "/images/breadBin.png"
+  },
+  {
+    "title": "Сундук",
+    "description": "Размеры: ширина - 30 см, длина - 50 см, высота - 44 см",
+    "imgUrl": "/images/box.png"
+  },
+  {
+    "title": "Поднос",
+    "description": "Размеры: ширина - 8 см, длина - 26 см. Поднос имеет высокие бортики - 9 см",
+    "imgUrl": "/images/tray.png"
+  },
+  {
+    "title": "Пасхальная корзинка",
+    "description": "Размеры: ширина - 18 см, длина - 29 см, высота - 13 см",
+    "imgUrl": "/images/EasterBasket.png"
+  },
+
+  {
+    "title": "Плетеный пуф",
+    "description": "Размеры: диаметр - 36 см, высота ножек - 23 см, высота пуфа - 40 см",
+    "imgUrl": "/images/WickerPouf.png"
+  },
+  {
+    "title": "Корзинка с ручками",
+    "description": "Размеры: ширина - 17 см, длина - 28 см, высота - 12 см",
+    "imgUrl": "/images/BasketWithHandles.png"
+  },
+  {
+    "title": "Корзинка для кухни",
+    "description": "Размеры: ширина - 14 см, длина - 20 см, высота - 9 см",
+    "imgUrl": "/images/kitchenBasket.png"
+  },
+  {
+    "title": "Круглая плетеная корзинка",
+    "description": "Размеры: диаметр - 16 см, высота - 14.5 см",
+    "imgUrl": "/images/RoundWickerBasket.png"
+  },
+  {
+    "title": "Корзина-органайзер",
+    "description": "Размеры: ширина - 25 см, длина - 25 см, высота - 22 см",
+    "imgUrl": "/images/BasketOrganizer.png"
+  },
+
+  {
+    "title": "Корзинка в белорусском стиле",
+    "description": "Размеры: высота без ручки - 18 см, с ручкой - 34 см, ширина и длина - 22х32",
+    "imgUrl": "/images/BasketInBelarusianStyle.jpg"
+  },
+  {
+    "title": "Квадратная плетеная корзинка",
+    "description": "Размеры: ширина - 17.5 см, длина - 25.5 см, высота - 11.5 см",
+    "imgUrl": "/images/SquareWickerBasket.png"
+  },
+  {
+    "title": "Круглая корзинка для кухни",
+    "description": "Размеры: диаметр - 16 см, высота - 19 см.",
+    "imgUrl": "/images/roundBasketForKitchen.png"
+  },
+  {
+    "title": "Сервировочная салфетка ",
+    "description": "Размеры: диаметр - 25 см",
+    "imgUrl": "/images/ServingNapkin.png"
   }
 ]
