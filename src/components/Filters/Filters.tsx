@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import ButtonFrame from "./ButtonFrame";
-import ButtonPresence from "./ButtonPresence";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,12 +11,7 @@ const Title = styled.div`
   font-size: 24px;
 `;
 
-const WrapperParameters = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  justify-content: flex-start;
-`;
+const WrapperParameters = styled.div``;
 
 const Parameters = styled.div`
   font-size: 18px;
@@ -35,9 +29,14 @@ const Filters = () => {
       <WrapperParameters>
         <Parameters>Параметры</Parameters>
 
-        <ButtonFrame />
-        <ButtonPresence />
+        <ButtonFrame title="Деревянный каркас" />
+        <ButtonFrame title="Есть в наличии" />
+        <Parameters>Типы</Parameters>
       </WrapperParameters>
+      <ButtonFrame title="Круглая корзинка" />
+      <ButtonFrame title="Квадратная корзинка" />
+      <ButtonFrame title="Мебель" />
+      <ButtonFrame title="Для кухни" />
     </div>
   );
 };
