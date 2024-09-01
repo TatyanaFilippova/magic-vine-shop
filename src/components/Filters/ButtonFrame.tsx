@@ -1,25 +1,41 @@
 import styled from "styled-components";
 import { useState } from "react";
+import ImgClose from "./ImgClose";
+import { title } from "process";
 
-const ButtonFrameStyled = styled.button<{ isBlue: boolean }>`
+const ButtonFrameStyled = styled.button<{ active: boolean }>`
   font-size: 18px;
   margin-top: 10px;
-  text-align: left;
+
+  align-items: center;
   border: 2px solid #869286;
   border-radius: 8px;
   height: 40px;
-  padding-left: 5px;
-  background-color: ${(props) => (props.isBlue ? "#869286" : "transparent")};
+  padding: 10px;
+  background-color: ${(props) => (props.active ? "#869286" : "transparent")};
+  display: flex;
+  justify-content: space-between;
+  color: ${(props) => (props.active ? "white" : "black")};
 `;
 
-const ButtonFrame = () => {
-  const [isBlue, setIsBlue] = useState(false);
-  const toggleBackground = () => {
-    setIsBlue(!isBlue);
-  };
+const ButtonFrame = ({ title }: { title: string }) => {
+  const [active, setActive] = useState(false);
+
   return (
-    <ButtonFrameStyled isBlue={isBlue} onClick={toggleBackground}>
-      Деревянный каркас
+    <ButtonFrameStyled
+      active={active}
+      onClick={() => {
+        if (!active) setActive(true);
+      }}
+    >
+      {title}
+      {active && (
+        <ImgClose
+          onClick={() => {
+            if (active) setActive(false);
+          }}
+        />
+      )}
     </ButtonFrameStyled>
   );
 };
