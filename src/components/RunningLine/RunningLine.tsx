@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Marquee from "react-fast-marquee";
+import { media } from "@/constants/media";
 
 const WrapperText = styled.div`
   height: 40px;
@@ -7,6 +8,10 @@ const WrapperText = styled.div`
   margin-top: 50px;
 
   background: #f2eae2;
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const Text = styled.div`

@@ -15,6 +15,7 @@ import wickerPouf from "../images/wickerPouf.png";
 import { layout } from "@/constants/layout";
 import WickerBasketForTheKitchen from "../images/WickerBasketForTheKitchen.png";
 import RunningLine from "@/components/RunningLine/RunningLine";
+import { media } from "@/constants/media";
 
 import Link from "next/link";
 
@@ -25,6 +26,10 @@ const WrapperProductCard = styled.div`
   padding-top: 20px;
 
   ${layout}
+
+  ${media.phone} {
+    flex-direction: column;
+  }
 `;
 
 const WrapperProductCardColumn = styled.div`
