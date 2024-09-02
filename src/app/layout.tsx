@@ -4,6 +4,7 @@ import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
 import path from "path";
 import Providers from "./providers";
+import Footer from "@/components/Footer/Footer";
 
 const inter = LocalFont({
   src: [
@@ -34,7 +35,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <StyledComponentsRegistry>
-          <Providers>{children} </Providers>
+          <Providers>
+            {children}
+            <Footer />
+          </Providers>
         </StyledComponentsRegistry>
       </body>
     </html>

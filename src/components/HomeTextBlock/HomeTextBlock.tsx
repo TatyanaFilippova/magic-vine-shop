@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { media } from "@/constants/media";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 150px;
+
+  ${media.phone} {
+    margin-bottom: 40px;
+  }
 `;
 
 const Text = styled.div`
@@ -12,6 +17,12 @@ const Text = styled.div`
   font-size: 30px;
   width: 800px;
   padding-top: 30px;
+
+  ${media.phone} {
+    font-size: 15px;
+    width: auto;
+    padding: 20px;
+  }
 `;
 
 const HomeTextBlock = () => {

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { media } from "@/constants/media";
 
 const Card = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ const Card = styled.div`
 
   & > * {
     width: 100%;
+
+    ${media.phone} {
+      flex-direction: column;
+    }
   }
 `;
 
