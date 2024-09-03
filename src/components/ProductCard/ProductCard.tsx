@@ -28,12 +28,30 @@ const Title = styled.div`
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+
+  ${media.tablet} {
+    font-size: 20px;
+  }
+
+  ${media.phone} {
+    font-size: 20px;
+  }
 `;
 
 const Description = styled.div`
   font-size: 20px;
   text-align: center;
+  height: 80px;
+
+  ${media.tablet} {
+    font-size: 18px;
+  }
+
+  ${media.phone} {
+    font-size: 15px;
+  }
 `;
 
 export const ButtonProductCard = styled.button`
@@ -45,6 +63,13 @@ export const ButtonProductCard = styled.button`
   margin-bottom: 50px;
   height: 60px;
   margin-top: 50px;
+
+  ${media.phone} {
+    font-size: 15px;
+    width: 250px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+  }
 `;
 
 export const WrapperButtonProductCard = styled.div`

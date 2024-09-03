@@ -9,6 +9,9 @@ const WrapperText = styled.div`
 
   background: #f2eae2;
 
+  ${media.tablet} {
+    display: none;
+  }
   ${media.phone} {
     display: none;
   }
