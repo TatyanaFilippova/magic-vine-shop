@@ -13,11 +13,12 @@ const Wrapper = styled.div`
 
   ${media.tablet} {
     text-align: center;
-    margin: 0 0 70px 10px;
+    margin: 0 0 70px 0;
   }
 
   ${media.phone} {
-    margin: 0 0 40px 10px;
+    margin: 0 0 40px 0px;
+    flex-direction: column;
   }
 `;
 
@@ -41,13 +42,11 @@ const Img = styled.img`
   object-fit: cover;
 
   ${media.tablet} {
-    height: 400px;
-    width: 400px;
+    width: 50%;
   }
 
   ${media.phone} {
-    height: 300px;
-    width: 300px;
+    width: 100%;
   }
 `;
 

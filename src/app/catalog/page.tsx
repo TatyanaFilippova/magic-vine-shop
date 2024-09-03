@@ -3,16 +3,21 @@
 import Header from "@/components/Header/Header";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import styled from "styled-components";
-import basketWithLid from "../../images/basketWithLid.png";
+
 import Filters from "@/components/Filters/Filters";
 import { layout } from "@/constants/layout";
 import { useQuery } from "@tanstack/react-query";
+import { media } from "@/constants/media";
 
 const Title = styled.div`
   display: flex;
   justify-content: center;
   font-size: 50px;
   margin-bottom: 100px;
+
+  ${media.phone} {
+    font-size: 30px;
+  }
 `;
 
 const WrapperDiv = styled.div`
@@ -32,6 +37,10 @@ const WrapperFilters = styled.div`
   display: flex;
   width: 300px;
   flex-direction: column;
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 interface ProductResult {
@@ -43,6 +52,14 @@ interface ProductResult {
 const WrapperProductCardColumn = styled.div`
   width: 35%;
   padding-bottom: 50px;
+
+  ${media.tablet} {
+    width: 45%;
+  }
+
+  ${media.phone} {
+    width: 100%;
+  }
 `;
 
 const CatalogCardProduct = () => {

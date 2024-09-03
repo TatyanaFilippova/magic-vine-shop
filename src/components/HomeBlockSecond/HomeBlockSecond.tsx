@@ -13,7 +13,12 @@ const Wrapper = styled.div`
 
   ${media.tablet} {
     text-align: center;
-    margin: 0 10px 70px 0;
+    margin: 0 0px 70px 0;
+  }
+
+  ${media.phone} {
+    flex-direction: column;
+    margin: 0 0 40px 0px;
   }
 `;
 const Text = styled.div`
@@ -23,6 +28,7 @@ const Text = styled.div`
 
   ${media.tablet} {
     font-size: 20px;
+    padding-left: 0;
   }
 
   ${media.phone} {
@@ -36,13 +42,11 @@ const Img = styled.img`
   object-fit: cover;
 
   ${media.tablet} {
-    height: 400px;
-    width: 400px;
+    width: 50%;
   }
 
   ${media.phone} {
-    height: 300px;
-    width: 300px;
+    width: 100%;
   }
 `;
 

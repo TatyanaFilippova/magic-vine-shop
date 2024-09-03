@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import ImgClose from "./ImgClose";
 import { title } from "process";
+import { media } from "@/constants/media";
 
 const ButtonFrameStyled = styled.button<{ active: boolean }>`
   font-size: 18px;
@@ -16,6 +17,9 @@ const ButtonFrameStyled = styled.button<{ active: boolean }>`
   display: flex;
   justify-content: space-between;
   color: ${(props) => (props.active ? "white" : "black")};
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const ButtonFrame = ({ title }: { title: string }) => {

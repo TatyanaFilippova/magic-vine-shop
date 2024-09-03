@@ -4,21 +4,38 @@ import styled from "styled-components";
 import icon from "../Header/icon.png";
 import iconVK from "./iconVK.png";
 import iconWhatsApp from "./iconWhatsApp.png";
+import { media } from "@/constants/media";
 
 const WrapperLogoTitle = styled.div`
   align-items: center;
 
   display: flex;
+
+  ${media.tablet} {
+    flex-direction: column;
+  }
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const Title = styled.div`
   font-size: 24px;
   padding-bottom: 50px;
+
+  ${media.tablet} {
+    font-size: 18px;
+  }
 `;
 
 const ImgLogo = styled.img`
@@ -30,11 +47,19 @@ const ImgLogo = styled.img`
 const Text = styled.div`
   font-size: 18px;
   padding-bottom: 15px;
+
+  ${media.phone} {
+    font-size: 15px;
+  }
 `;
 
 const WrapperText = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${media.tablet} {
+    display: none;
+  }
 `;
 
 const WrapperBlock = styled.div`
@@ -52,6 +77,10 @@ const WrapperBlockTitle = styled.div`
   font-weight: bold;
   margin-bottom: 32px;
   margin-top: 54px;
+
+  ${media.phone} {
+    margin-top: 10px;
+  }
 `;
 
 const WrapperMain = styled.div`
