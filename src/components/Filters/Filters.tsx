@@ -3,6 +3,7 @@ import ButtonFrame from "./ButtonFrame";
 import { media } from "@/constants/media";
 import Dropdown from "./SelectedOption";
 import Checkbox from "./Checkbox";
+import { title } from "process";
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,6 +31,24 @@ const Parameters = styled.div`
   margin-bottom: 10px;
 `;
 
+const parameters = [
+  {
+    title: "Деревянный каркас",
+    value: "11",
+  },
+  { title: "Есть в наличии", value: "12" },
+];
+
+const type = [
+  {
+    title: "Круглая корзинка",
+    value: "1",
+  },
+  { title: "Квадратная корзинка", value: "2" },
+  { title: "Мебель", value: "3" },
+  { title: "Для кухни", value: "4" },
+];
+
 const Filters = () => {
   return (
     <div>
@@ -38,15 +57,23 @@ const Filters = () => {
       </Wrapper>
       <WrapperParameters>
         <Parameters>Параметры</Parameters>
+        {parameters.map((item) => {
+          return (
+            <ButtonFrame
+              value={item.value}
+              title={item.title}
+              key={item.value}
+            />
+          );
+        })}
 
-        <ButtonFrame title="Деревянный каркас" />
-        <ButtonFrame title="Есть в наличии" />
         <Parameters>Типы</Parameters>
       </WrapperParameters>
-      <ButtonFrame title="Круглая корзинка" />
-      <ButtonFrame title="Квадратная корзинка" />
-      <ButtonFrame title="Мебель" />
-      <ButtonFrame title="Для кухни" />
+      {type.map((item) => {
+        return (
+          <ButtonFrame value={item.value} title={item.title} key={item.value} />
+        );
+      })}
       <Parameters>Срок изготовления</Parameters>
       <Dropdown />
       <Parameters>Цена изделия</Parameters>

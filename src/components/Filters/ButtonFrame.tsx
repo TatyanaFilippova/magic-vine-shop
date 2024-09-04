@@ -3,6 +3,7 @@ import { useState } from "react";
 import ImgClose from "./ImgClose";
 import { title } from "process";
 import { media } from "@/constants/media";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const ButtonFrameStyled = styled.button<{ active: boolean }>`
   font-size: 18px;
@@ -22,21 +23,37 @@ const ButtonFrameStyled = styled.button<{ active: boolean }>`
   }
 `;
 
-const ButtonFrame = ({ title }: { title: string }) => {
-  const [active, setActive] = useState(false);
+const ButtonFrame = ({ title, value }: { title: string; value: string }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
+
+  const active = current.has("selected", value);
 
   return (
     <ButtonFrameStyled
       active={active}
       onClick={() => {
-        if (!active) setActive(true);
+        if (active) {
+          current.delete("selected", value);
+        } else {
+          current.append("selected", value);
+        }
+
+        const search = current.toString();
+
+        const query = search ? `?${search}` : "";
+
+        router.push(`${pathname}${query}`);
       }}
     >
       {title}
       {active && (
         <ImgClose
           onClick={() => {
-            if (active) setActive(false);
+            // if (active) setActive(false);
           }}
         />
       )}
