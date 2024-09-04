@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import icon from "./icon.png";
 import { media } from "@/constants/media";

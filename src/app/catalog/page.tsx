@@ -82,7 +82,6 @@ const CatalogCardProduct = () => {
   });
   return (
     <div>
-      <Header />
       <Title>Каталог товаров</Title>
       <WrapperDiv>
         <WrapperFilters>
