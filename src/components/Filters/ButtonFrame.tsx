@@ -31,29 +31,31 @@ const ButtonFrame = ({ title, value }: { title: string; value: string }) => {
   const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
 
   const active = current.has("selected", value);
+  const handleClick = () => {
+    if (active) {
+      current.delete("selected", value);
+    } else {
+      current.append("selected", value);
+    }
 
+    const search = current.toString();
+
+    const query = search ? `?${search}` : "";
+
+    router.push(`${pathname}${query}`, { scroll: false });
+  };
   return (
     <ButtonFrameStyled
       active={active}
       onClick={() => {
-        if (active) {
-          current.delete("selected", value);
-        } else {
-          current.append("selected", value);
-        }
-
-        const search = current.toString();
-
-        const query = search ? `?${search}` : "";
-
-        router.push(`${pathname}${query}`);
+        if (!active) handleClick();
       }}
     >
       {title}
       {active && (
         <ImgClose
           onClick={() => {
-            // if (active) setActive(false);
+            if (active) handleClick();
           }}
         />
       )}

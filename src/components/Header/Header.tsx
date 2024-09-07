@@ -3,17 +3,23 @@
 import styled from "styled-components";
 import icon from "./icon.png";
 import { media } from "@/constants/media";
+import { layout } from "@/constants/layout";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 40px 80px 40px;
+
   height: 146px;
   align-items: center;
+  position: absolute;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0 40px;
 
   ${media.tablet} {
     text-align: center;
   }
+
   ${media.phone} {
     font-size: 15px;
     justify-content: center;

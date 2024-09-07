@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import Header from "@/components/Header/Header";
+
 import HomeBanner from "@/components/HomeBanner/HomeBanner";
 import { EmblaCarousel } from "./lib/emblaCarousel/emblaCarousel";
 import HomeBlock from "@/components/HomeBlock/HomeBlock";

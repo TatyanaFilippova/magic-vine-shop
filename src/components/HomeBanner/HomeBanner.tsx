@@ -18,6 +18,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: auto;
+  padding-top: 200px;
 
   ${media.phone} {
     text-align: center;

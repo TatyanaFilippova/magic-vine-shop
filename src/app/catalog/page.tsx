@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/Header/Header";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import styled from "styled-components";
 
@@ -14,6 +13,7 @@ const Title = styled.div`
   justify-content: center;
   font-size: 50px;
   margin-bottom: 100px;
+  padding-top: 200px;
 
   ${media.phone} {
     font-size: 30px;
