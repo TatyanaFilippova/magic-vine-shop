@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "@/constants/media";
 
 const Table = () => {
   const data = [
@@ -13,6 +14,14 @@ const Table = () => {
     width: 790px;
     border-collapse: collapse;
     margin: 40px 0 40px 0;
+
+    ${media.tablet} {
+      width: 100%;
+    }
+    ${media.phone} {
+      display: flex;
+      width: 100%;
+    }
   `;
 
   const Td = styled.td`

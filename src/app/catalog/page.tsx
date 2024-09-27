@@ -68,9 +68,9 @@ const CatalogCardProduct = () => {
     queryFn: () => fetch("/api/product.json").then((res) => res.json()),
   });
   if (!data) return null;
-  const product = data.map(function (item: ProductResult) {
+  const product = data.map(function (item: ProductResult, key: number) {
     return (
-      <WrapperProductCardColumn>
+      <WrapperProductCardColumn key={key}>
         <ProductCard
           description={item.description}
           title={item.title}
@@ -78,7 +78,7 @@ const CatalogCardProduct = () => {
           button="Подробнее"
         />
       </WrapperProductCardColumn>
-    );
+    )
   });
   return (
     <div>

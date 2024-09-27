@@ -1,7 +1,6 @@
 "use client";
 
 import styled from "styled-components";
-
 import HomeBanner from "@/components/HomeBanner/HomeBanner";
 import { EmblaCarousel } from "./lib/emblaCarousel/emblaCarousel";
 import HomeBlock from "@/components/HomeBlock/HomeBlock";
@@ -16,7 +15,6 @@ import { layout } from "@/constants/layout";
 import WickerBasketForTheKitchen from "../images/WickerBasketForTheKitchen.png";
 import RunningLine from "@/components/RunningLine/RunningLine";
 import { media } from "@/constants/media";
-
 import Link from "next/link";
 
 const WrapperProductCard = styled.div`
