@@ -1,4 +1,5 @@
 import { layout } from "@/constants/layout";
+import { title } from "process";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -78,15 +79,22 @@ const TableFilter = () => {
     { id: 7, title: "Хлебница", category: "для кухни", price: "4200" },
     { id: 8, title: "Плетеный сундук", category: "мебель", price: "6300" },
   ];
-  const listTable = list.map((item) => (
+
+  const [value, setValue] = useState("");
+  const filteredList = list.filter((item) =>
+    item.title.toLowerCase().includes(value.toLowerCase())
+  );
+
+  const renderedList = value ? filteredList : list;
+
+  const listTable = renderedList.map((item) => (
     <tr key={item.id}>
       <Td>{item.title}</Td>
       <Td>{item.category}</Td>
       <Td>{item.price}</Td>
     </tr>
   ));
-  const [value, setValue] = useState("");
-  console.log(value);
+
   return (
     <Wrapper>
       <DivInput>
@@ -106,7 +114,7 @@ const TableFilter = () => {
             <Thead>Стоимость/ руб</Thead>
           </tr>
         </thead>
-        <tbody>{listTable}</tbody>
+        <tbody> {listTable}</tbody>
       </Table>
     </Wrapper>
   );
