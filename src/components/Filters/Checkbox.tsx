@@ -1,9 +1,10 @@
 import { StrictMode } from "react";
+import { pink } from "@mui/material/colors";
+import Checkbox from "@mui/material/Checkbox";
 import styled from "styled-components";
 
 const Wrapper = styled.div``;
 const Text = styled.label`
-  padding-top: 10px;
   font-size: 18px;
   display: block;
 `;
@@ -12,24 +13,24 @@ const Input = styled.input`
   margin-right: 10px;
 `;
 
-const Checkbox = () => {
+const CheckboxComponent = () => {
   return (
     <StrictMode>
       <Wrapper>
         <Text>
-          <Input type="checkbox" value="до 2000" />
+          <Checkbox defaultChecked color="default" />
           до 2000 р.
         </Text>
         <Text>
-          <Input type="checkbox" value="до 4000" />
+          <Checkbox defaultChecked color="default" />
           до 4000 р.
         </Text>
         <Text>
-          <Input type="checkbox" value="до 6000" />
+          <Checkbox defaultChecked color="default" />
           до 6000 р.
         </Text>
         <Text>
-          <Input type="checkbox" value="до 8000" />
+          <Checkbox defaultChecked color="default" />
           до 8000 р.
         </Text>
       </Wrapper>
@@ -37,4 +38,4 @@ const Checkbox = () => {
   );
 };
 
-export default Checkbox;
+export default CheckboxComponent;

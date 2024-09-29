@@ -4,6 +4,7 @@ import { media } from "@/constants/media";
 import Dropdown from "./SelectedOption";
 import Checkbox from "./Checkbox";
 import { title } from "process";
+import CheckboxComponent from "./Checkbox";
 
 const Wrapper = styled.div`
   display: flex;
@@ -77,7 +78,7 @@ const Filters = () => {
       <Parameters>Срок изготовления</Parameters>
       <Dropdown />
       <Parameters>Цена изделия</Parameters>
-      <Checkbox />
+      <CheckboxComponent />
     </div>
   );
 };
