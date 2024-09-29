@@ -2,11 +2,11 @@
 
 import ProductCard from "@/components/ProductCard/ProductCard";
 import styled from "styled-components";
-
 import Filters from "@/components/Filters/Filters";
 import { layout } from "@/constants/layout";
 import { useQuery } from "@tanstack/react-query";
 import { media } from "@/constants/media";
+import { useSearchParams } from "next/navigation";
 
 const Title = styled.div`
   display: flex;
@@ -62,24 +62,42 @@ const WrapperProductCardColumn = styled.div`
   }
 `;
 
+interface Item {
+  id: string;
+  title: string;
+  description?: string;
+  imgUrl: string;
+  params: [string];
+}
+
 const CatalogCardProduct = () => {
+  const searchParams = useSearchParams();
+  const current = new URLSearchParams(Array.from(searchParams.entries()));
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: () => fetch("/api/product.json").then((res) => res.json()),
   });
+
+  if (isLoading) return <div>Loading...</div>; // Обработка загрузки
+  if (error) return <div>Error: {error.message}</div>; // Обработка ошибок
   if (!data) return null;
-  const product = data.map(function (item: ProductResult, key: number) {
-    return (
-      <WrapperProductCardColumn key={key}>
-        <ProductCard
-          description={item.description}
-          title={item.title}
-          imgCard={item.imgUrl}
-          button="Подробнее"
-        />
-      </WrapperProductCardColumn>
-    )
+
+  const filteredData = data.filter((item: Item) => {
+    if (!current.has("selected")) return true;
+    return item.params.some((filter) => current.has("selected", filter));
   });
+
+  const product = filteredData.map((item: ProductResult, key: number) => (
+    <WrapperProductCardColumn key={key}>
+      <ProductCard
+        description={item.description}
+        title={item.title}
+        imgCard={item.imgUrl}
+        button="Подробнее"
+      />
+    </WrapperProductCardColumn>
+  ));
   return (
     <div>
       <Title>Каталог товаров</Title>
