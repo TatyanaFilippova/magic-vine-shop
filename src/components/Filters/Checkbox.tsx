@@ -1,41 +1,44 @@
-import { StrictMode } from "react";
-import { pink } from "@mui/material/colors";
-import Checkbox from "@mui/material/Checkbox";
-import styled from "styled-components";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import CheckboxMui from "@mui/material/Checkbox";
 
-const Wrapper = styled.div``;
-const Text = styled.label`
-  font-size: 18px;
-  display: block;
-`;
+interface Checkbox {
+  value: number;
+  label: string;
+}
 
-const Input = styled.input`
-  margin-right: 10px;
-`;
+const Checkbox = ({ value, label }: Checkbox) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
-const CheckboxComponent = () => {
+  const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
+
+  const active = current.has("max-price", value.toString());
+  const handleClick = () => {
+    if (active) {
+      current.delete("max-price", value.toString());
+    } else {
+      current.set("max-price", value.toString());
+    }
+
+    const search = current.toString();
+
+    const query = search ? `?${search}` : "";
+
+    router.push(`${pathname}${query}`, { scroll: false });
+  };
   return (
-    <StrictMode>
-      <Wrapper>
-        <Text>
-          <Checkbox defaultChecked color="default" />
-          до 2000 р.
-        </Text>
-        <Text>
-          <Checkbox defaultChecked color="default" />
-          до 4000 р.
-        </Text>
-        <Text>
-          <Checkbox defaultChecked color="default" />
-          до 6000 р.
-        </Text>
-        <Text>
-          <Checkbox defaultChecked color="default" />
-          до 8000 р.
-        </Text>
-      </Wrapper>
-    </StrictMode>
+    <>
+      <CheckboxMui
+        checked={active}
+        color="default"
+        onClick={() => {
+          handleClick();
+        }}
+      />
+      {label}
+    </>
   );
 };
 
-export default CheckboxComponent;
+export default Checkbox;
