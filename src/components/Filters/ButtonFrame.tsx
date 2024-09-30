@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
 import ImgClose from "./ImgClose";
-import { title } from "process";
 import { media } from "@/constants/media";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 

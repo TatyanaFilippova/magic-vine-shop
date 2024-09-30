@@ -68,6 +68,7 @@ interface Item {
   description?: string;
   imgUrl: string;
   params: [string];
+  price: number;
 }
 
 const CatalogCardProduct = () => {
@@ -84,12 +85,18 @@ const CatalogCardProduct = () => {
   if (!data) return null;
 
   const filteredData = data.filter((item: Item) => {
+    const selectedPrice = current.get("max-price");
+
+    if (selectedPrice && +selectedPrice < item.price) {
+      return false;
+    }
     if (!current.has("selected")) return true;
+
     return item.params.some((filter) => current.has("selected", filter));
   });
 
-  const product = filteredData.map((item: ProductResult, key: number) => (
-    <WrapperProductCardColumn key={key}>
+  const product = filteredData.map((item: ProductResult) => (
+    <WrapperProductCardColumn key={item.title}>
       <ProductCard
         description={item.description}
         title={item.title}
