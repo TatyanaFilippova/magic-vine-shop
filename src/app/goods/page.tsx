@@ -6,6 +6,8 @@ import { media } from "@/constants/media";
 import DescriptionBlock from "./Slideshow/DescriptionBlock";
 import { EmblaCarouselProduct } from "./Slideshow/emblaCarouselProduct";
 import Table12 from "./Table";
+import HomeTextBlock from "@/components/HomeTextBlock/HomeTextBlock";
+import OrderForm from "@/components/OrderForm/OrderForm";
 
 const Wrapper = styled.div`
   display: flex;
@@ -91,12 +93,14 @@ const Hashtags = styled.div`
     font-size: 12px;
   }
 `;
-const Button = styled.button`
+const Button = styled.div`
   background-color: #526468;
   color: white;
   height: 40px;
   font-size: 16px;
-  width: 256px;
+  width: 460px;
+  padding: 10px;
+  text-align: center;
 `;
 
 const Shell = styled.div`
@@ -126,8 +130,16 @@ const Goods = () => {
       <EmblaCarouselProduct />
       <Shell>
         <Table12 />
-        <Button>Расчитать стоимость</Button>
+        <Button>
+          Данная корзинка в указанном цвете и размерах стоит 2500 р.
+        </Button>
       </Shell>
+      <HomeTextBlock
+        text={
+          "Оставьте вашу заявку на понравившийся товар, и мы обязательно свяжемся с вами для обсуждения и уточнения всех ваших предложений, изменений и цены. "
+        }
+      />
+      <OrderForm />
     </>
   );
 };
