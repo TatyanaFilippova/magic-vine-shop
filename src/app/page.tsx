@@ -61,7 +61,14 @@ export default function Home() {
       <EmblaCarousel />
       <HomeBlock />
       <HomeBlockSecond />
-      <HomeTextBlock />
+      <HomeTextBlock
+        text={
+          "Каждая корзинка изготавливается вручную мастерами, которые делают акцентна высоком качестве и уникальности каждого изделия."
+        }
+        textSecond={
+          "Мы используем только экологически чистые материалы, чтобы вы могли наслаждаться красотой и безопасностью наших продуктов. "
+        }
+      />
       <WrapperProductCard>
         <WrapperProductCardColumn>
           <ProductCard

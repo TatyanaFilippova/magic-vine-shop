@@ -23,6 +23,7 @@ const Text = styled.div`
   font-size: 30px;
   width: 800px;
   padding-top: 30px;
+  line-height: 1.3;
 
   ${media.tablet} {
     font-size: 20px;
@@ -35,17 +36,11 @@ const Text = styled.div`
   }
 `;
 
-const HomeTextBlock = () => {
+const HomeTextBlock = ({ text, textSecond }: any) => {
   return (
     <Wrapper>
-      <Text>
-        Каждая корзинка изготавливается вручную мастерами, которые делают акцент
-        на высоком качестве и уникальности каждого изделия.
-      </Text>
-      <Text>
-        Мы используем только экологически чистые материалы, чтобы вы могли
-        наслаждаться красотой и безопасностью наших продуктов.
-      </Text>
+      <Text>{text}</Text>
+      <Text>{textSecond}</Text>
     </Wrapper>
   );
 };
