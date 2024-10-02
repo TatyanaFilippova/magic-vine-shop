@@ -25,8 +25,8 @@ const Button = styled.button`
   width: 274px;
   height: 44px;
   font-size: 18px;
-  background-color: #bcc0b4;
-  border-radius: 8px;
+  background-color: #526468;
+  color: white;
 
   ${media.phone} {
     width: 100%;

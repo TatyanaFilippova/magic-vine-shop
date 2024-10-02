@@ -94,8 +94,8 @@ const Hashtags = styled.div`
   }
 `;
 const Button = styled.div`
-  background-color: #526468;
-  color: white;
+  background-color: #bcc0b4;
+  border-radius: 8px;
   height: 40px;
   font-size: 16px;
   width: 460px;
@@ -140,6 +140,7 @@ const Goods = () => {
         }
       />
       <OrderForm />
+      
     </>
   );
 };
