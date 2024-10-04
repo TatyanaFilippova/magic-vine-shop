@@ -8,6 +8,10 @@ import { EmblaCarouselProduct } from "./Slideshow/emblaCarouselProduct";
 import Table12 from "./Table";
 import HomeTextBlock from "@/components/HomeTextBlock/HomeTextBlock";
 import OrderForm from "@/components/OrderForm/OrderForm";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { layout } from "@/constants/layout";
+import { useParams } from "next/navigation";
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,6 +35,9 @@ const Title = styled.div`
 
 const Description = styled.div`
   font-size: 18px;
+  width: 600px;
+  line-height: 1.4;
+  white-space: break-spaces;
 
   ${media.phone} {
     font-size: 15px;
@@ -38,11 +45,11 @@ const Description = styled.div`
   }
 `;
 
-const ImgProduct = styled.div`
-  background: url(${banner.src});
+const ImgProduct = styled.div<{ $img: string }>`
+  background: ${(props) => `url(${props.$img})`};
   background-repeat: no-repeat;
-  height: 800px;
-  width: 70%;
+  height: 700px;
+  width: 100%;
   background-size: cover;
 
   ${media.tablet} {
@@ -57,7 +64,10 @@ const ImgProduct = styled.div`
 const WrapperText = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 10%;
+  padding: 0 40px;
+  width: 100%;
+
+  ${layout}
 
   ${media.tablet} {
     width: 100%;
@@ -94,8 +104,8 @@ const Hashtags = styled.div`
   }
 `;
 const Button = styled.div`
-  background-color: #526468;
-  color: white;
+  background-color: #bcc0b4;
+  border-radius: 8px;
   height: 40px;
   font-size: 16px;
   width: 460px;
@@ -107,32 +117,67 @@ const Shell = styled.div`
   margin: 40px;
 `;
 
+interface Product {
+  summary: string;
+  title: string;
+  tag: string;
+  banner: {
+    url: string;
+  };
+  material: string;
+  time: string;
+  delivery: string;
+  dimensions: string;
+  colors: string;
+  slider: {
+    url: string;
+  }[];
+  priceForm: string;
+}
+
 const Goods = () => {
+  const params = useParams<{ slug: string }>();
+
+  const { data } = useQuery({
+    queryKey: ["productDetail"],
+    queryFn: async () => {
+      const result = await axios.get(
+        `http://localhost:1337/api/products?populate=*&filters[slug][$eq]=${params.slug}`
+      );
+
+      return result.data;
+    },
+  });
+  console.log(data);
+  const product: Product = data?.data?.[0];
+
+  if (!product) return null;
+
   return (
     <>
       <Wrapper>
         {
           <WrapperText>
-            <Title>Корзинка с крышкой</Title>
+            <Title>{product.title}</Title>
             <WrapperHashtags>
-              <Hashtags>#Прочная</Hashtags>
-              <Hashtags>#Не боится влаги</Hashtags>
-              <Hashtags>#быстрое изготовление</Hashtags>
+              <Hashtags>{product.tag}</Hashtags>
             </WrapperHashtags>
-            <Description>
-              Описание этой прекрасной корзинки, небольшое на несколько строк
-            </Description>
+            <Description>{product.summary}</Description>
           </WrapperText>
         }
-        <ImgProduct />
+        <ImgProduct $img={"http://localhost:1337" + product?.banner?.url} />
       </Wrapper>
       <DescriptionBlock />
-      <EmblaCarouselProduct />
+      <EmblaCarouselProduct slider={product.slider} />
       <Shell>
-        <Table12 />
-        <Button>
-          Данная корзинка в указанном цвете и размерах стоит 2500 р.
-        </Button>
+        <Table12
+          material={product.material}
+          delivery={product.delivery}
+          dimensions={product.dimensions}
+          colors={product.colors}
+          time={product.time}
+        />
+        <Button>{product.priceForm}</Button>
       </Shell>
       <HomeTextBlock
         text={

@@ -7,8 +7,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   margin-top: 100px;
   margin-bottom: 100px;
-
-  ${layout}
+  padding: 0 40px;
 
   ${media.phone} {
     margin-top: 40px;
@@ -25,8 +24,8 @@ const Button = styled.button`
   width: 274px;
   height: 44px;
   font-size: 18px;
-  background-color: #bcc0b4;
-  border-radius: 8px;
+  background-color: #526468;
+  color: white;
 
   ${media.phone} {
     width: 100%;
