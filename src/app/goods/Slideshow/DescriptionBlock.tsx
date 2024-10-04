@@ -7,8 +7,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   margin-top: 100px;
   margin-bottom: 100px;
-
-  ${layout}
+  padding: 0 40px;
 
   ${media.phone} {
     margin-top: 40px;

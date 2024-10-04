@@ -2,15 +2,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
-import img1 from "./img1.png";
-import img2 from "./img2.png";
+
 import { media } from "@/constants/media";
 
 const Embla = styled.div`
   overflow: hidden;
-
   margin-bottom: 60px;
-
   padding-bottom: 40px;
 
   ${media.tablet} {
@@ -28,15 +25,14 @@ const Embla__container = styled.div`
 `;
 
 const Embla__slide = styled.div`
-  flex: 0 0 50%;
+  flex: 0 0 40%;
   min-width: 0;
-  margin-right: 20px;
 `;
 
 const Img = styled.img`
-  height: 700px;
+  height: 550px;
   object-fit: cover;
-  width: 100%;
+  width: 95%;
 
   ${media.tablet} {
     height: 300px;
@@ -47,7 +43,13 @@ const Img = styled.img`
   }
 `;
 
-export function EmblaCarouselProduct() {
+interface EmblaProps {
+  slider: {
+    url: string;
+  }[];
+}
+
+export function EmblaCarouselProduct({ slider }: EmblaProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   useEffect(() => {
@@ -59,12 +61,13 @@ export function EmblaCarouselProduct() {
   return (
     <Embla ref={emblaRef}>
       <Embla__container>
-        <Embla__slide>
-          <Img src={img1.src} />
-        </Embla__slide>
-        <Embla__slide>
-          <Img src={img2.src} />
-        </Embla__slide>
+        {slider.map((item) => {
+          return (
+            <Embla__slide key={item.url}>
+              <Img src={"http://localhost:1337" + item.url} />
+            </Embla__slide>
+          );
+        })}
       </Embla__container>
     </Embla>
   );

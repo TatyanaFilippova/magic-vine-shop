@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import imgForm from "./image 20.png";
-import imgForm2 from "./image 21.png";
+import imgForm from "./imgForm.png";
+import imgForm2 from "./imgForm2.png";
 import {
   TextField,
   createTheme,
