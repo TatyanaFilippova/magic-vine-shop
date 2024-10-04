@@ -11,6 +11,7 @@ import OrderForm from "@/components/OrderForm/OrderForm";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { layout } from "@/constants/layout";
+import { useParams } from "next/navigation";
 
 const Wrapper = styled.div`
   display: flex;
@@ -131,22 +132,24 @@ interface Product {
   slider: {
     url: string;
   }[];
+  priceForm: string;
 }
 
 const Goods = () => {
+  const params = useParams<{ slug: string }>();
+
   const { data } = useQuery({
     queryKey: ["productDetail"],
     queryFn: async () => {
       const result = await axios.get(
-        "http://localhost:1337/api/products?populate=*"
+        `http://localhost:1337/api/products?populate=*&filters[slug][$eq]=${params.slug}`
       );
 
       return result.data;
     },
   });
-
+  console.log(data);
   const product: Product = data?.data?.[0];
-  console.log(product);
 
   if (!product) return null;
 
@@ -162,7 +165,7 @@ const Goods = () => {
             <Description>{product.summary}</Description>
           </WrapperText>
         }
-        <ImgProduct $img={"http://localhost:1337" + product.banner.url} />
+        <ImgProduct $img={"http://localhost:1337" + product?.banner?.url} />
       </Wrapper>
       <DescriptionBlock />
       <EmblaCarouselProduct slider={product.slider} />
@@ -174,9 +177,7 @@ const Goods = () => {
           colors={product.colors}
           time={product.time}
         />
-        <Button>
-          Данная корзинка в указанном цвете и размерах стоит 2500 р.
-        </Button>
+        <Button>{product.priceForm}</Button>
       </Shell>
       <HomeTextBlock
         text={

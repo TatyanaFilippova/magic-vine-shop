@@ -7,6 +7,7 @@ import { layout } from "@/constants/layout";
 import { useQuery } from "@tanstack/react-query";
 import { media } from "@/constants/media";
 import { useSearchParams } from "next/navigation";
+import axios from "axios";
 
 const Title = styled.div`
   display: flex;
@@ -69,6 +70,7 @@ interface Item {
   imgUrl: string;
   params: [string];
   price: number;
+  link: string;
 }
 
 const CatalogCardProduct = () => {
@@ -77,14 +79,32 @@ const CatalogCardProduct = () => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["posts"],
-    queryFn: () => fetch("/api/product.json").then((res) => res.json()),
+    queryFn: async () => {
+      const result = await axios.get(
+        "http://localhost:1337/api/products?populate=*"
+      );
+
+      return result.data;
+    },
   });
 
   if (isLoading) return <div>Loading...</div>; // Обработка загрузки
   if (error) return <div>Error: {error.message}</div>; // Обработка ошибок
   if (!data) return null;
 
-  const filteredData = data.filter((item: Item) => {
+  const list: Item[] = data.data.map((item: any) => {
+    return {
+      id: item.id,
+      title: item.title,
+      description: item.dimensions,
+      imgUrl: "http://localhost:1337" + item.banner.url,
+      params: [],
+      price: item.price,
+      link: `/catalog/${item.slug}`,
+    };
+  });
+
+  const filteredData = list.filter((item: Item) => {
     const selectedPrice = current.get("max-price");
 
     if (selectedPrice && +selectedPrice < item.price) {
@@ -95,13 +115,13 @@ const CatalogCardProduct = () => {
     return item.params.some((filter) => current.has("selected", filter));
   });
 
-  const product = filteredData.map((item: ProductResult) => (
+  const product = filteredData.map((item: Item) => (
     <WrapperProductCardColumn key={item.title}>
       <ProductCard
-        description={item.description}
+        description={item.description ?? ""}
         title={item.title}
         imgCard={item.imgUrl}
-        button="Подробнее"
+        link={item.link}
       />
     </WrapperProductCardColumn>
   ));

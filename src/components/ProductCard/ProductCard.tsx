@@ -82,7 +82,7 @@ interface ProductCardProps {
   imgCard: string;
   title: string;
   description: string;
-  button?: string;
+  link?: string;
 }
 
 const Button = styled.button`
@@ -98,7 +98,7 @@ const ProductCard: FC<ProductCardProps> = ({
   imgCard,
   title,
   description,
-  button,
+  link,
 }) => {
   return (
     <Card>
@@ -110,9 +110,9 @@ const ProductCard: FC<ProductCardProps> = ({
       </motion.div>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      {button && (
-        <Link href="/goods">
-          <Button>{button}</Button>
+      {link && (
+        <Link href={link}>
+          <Button>Подробнее</Button>
         </Link>
       )}
     </Card>

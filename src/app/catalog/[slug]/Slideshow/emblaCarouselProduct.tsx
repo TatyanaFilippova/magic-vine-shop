@@ -61,7 +61,7 @@ export function EmblaCarouselProduct({ slider }: EmblaProps) {
   return (
     <Embla ref={emblaRef}>
       <Embla__container>
-        {slider.map((item) => {
+        {slider?.map((item) => {
           return (
             <Embla__slide key={item.url}>
               <Img src={"http://localhost:1337" + item.url} />
