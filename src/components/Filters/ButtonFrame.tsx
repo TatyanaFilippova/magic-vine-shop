@@ -22,6 +22,12 @@ const ButtonFrameStyled = styled.button<{ active: boolean }>`
   }
 `;
 
+const ImgCloseStyled = styled(ImgClose)`
+  margin-left: 10px;
+
+`
+
+
 const ButtonFrame = ({ title, value }: { title: string; value: string }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -52,7 +58,7 @@ const ButtonFrame = ({ title, value }: { title: string; value: string }) => {
     >
       {title}
       {active && (
-        <ImgClose
+        <ImgCloseStyled
           onClick={() => {
             if (active) handleClick();
           }}
