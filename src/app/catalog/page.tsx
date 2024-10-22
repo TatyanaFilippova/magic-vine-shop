@@ -122,13 +122,18 @@ const CatalogCardProduct = () => {
       params: formatParams(allFilters),
       price: item.price,
       link: `/catalog/${item.slug}`,
+      week: item.week,
     };
   });
 
   const filteredData = list.filter((item: Item) => {
     const selectedPrice = current.get("max-price");
-
+    const weeks = current.get("weeks");
     if (selectedPrice && +selectedPrice < item.price) {
+      return false;
+    }
+    console.log(item.week);
+    if (weeks > item.week) {
       return false;
     }
     if (!current.has("selected")) return true;
@@ -157,7 +162,10 @@ const CatalogCardProduct = () => {
         <WrapperFilters>
           <Filters></Filters>
         </WrapperFilters>
-        <Wrapper>{product}</Wrapper>
+        <Wrapper>
+          {product}
+          <div />
+        </Wrapper>
       </WrapperDiv>
     </div>
   );
