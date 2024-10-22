@@ -73,6 +73,25 @@ interface Item {
   link: string;
 }
 
+const data= [
+  {
+      "id": 2,
+      "documentId": "eqlpup9qx0b96iwwj7ly2rc8",
+      "title": "Деревянный каркас",
+      "slug": "derevyannyj-karkas",
+      "createdAt": "2024-10-22T08:51:26.395Z",
+      "updatedAt": "2024-10-22T08:51:26.395Z",
+      "publishedAt": "2024-10-22T08:51:26.408Z",
+      "locale": null
+  }
+]
+
+const formatParams = (data) => {
+  return data.map(item => {
+    return item.slug
+  })
+}
+
 const CatalogCardProduct = () => {
   const searchParams = useSearchParams();
   const current = new URLSearchParams(Array.from(searchParams.entries()));
@@ -91,14 +110,14 @@ const CatalogCardProduct = () => {
   if (isLoading) return <div>Loading...</div>; // Обработка загрузки
   if (error) return <div>Error: {error.message}</div>; // Обработка ошибок
   if (!data) return null;
-
+console.log(data)
   const list: Item[] = data.data.map((item: any) => {
     return {
       id: item.id,
       title: item.title,
       description: item.dimensions,
       imgUrl: "http://localhost:1337" + item.banner.url,
-      params: [],
+      params: formatParams(item.filterParameters),
       price: item.price,
       link: `/catalog/${item.slug}`,
     };

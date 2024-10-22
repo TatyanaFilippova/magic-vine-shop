@@ -3,6 +3,9 @@ import ButtonFrame from "./ButtonFrame";
 import { media } from "@/constants/media";
 import Dropdown from "./SelectedOption";
 import CheckboxList from "./CheckboxList";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { it } from "node:test";
 
 const Wrapper = styled.div`
   display: flex;
@@ -48,7 +51,27 @@ const type = [
   { title: "Для кухни", value: "4" },
 ];
 
+const formatFilters = (data: any) => {
+  return data.data.map((item) => {
+    return { title: item.title, value: item.slug };
+  });
+};
+
 const Filters = () => {
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["filter-parameters"],
+    queryFn: async () => {
+      const result = await axios.get(
+        "http://localhost:1337/api/filter-parameters"
+      );
+
+      return result.data;
+    },
+  });
+  if (!data) return null
+
+  const parameters = formatFilters(data);
+
   return (
     <div>
       <Wrapper>
@@ -56,7 +79,7 @@ const Filters = () => {
       </Wrapper>
       <WrapperParameters>
         <Parameters>Параметры</Parameters>
-        {parameters.map((item) => {
+        {parameters?.map((item) => {
           return (
             <ButtonFrame
               value={item.value}
