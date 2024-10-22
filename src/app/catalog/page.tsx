@@ -73,24 +73,24 @@ interface Item {
   link: string;
 }
 
-const data= [
+const data = [
   {
-      "id": 2,
-      "documentId": "eqlpup9qx0b96iwwj7ly2rc8",
-      "title": "Деревянный каркас",
-      "slug": "derevyannyj-karkas",
-      "createdAt": "2024-10-22T08:51:26.395Z",
-      "updatedAt": "2024-10-22T08:51:26.395Z",
-      "publishedAt": "2024-10-22T08:51:26.408Z",
-      "locale": null
-  }
-]
+    id: 2,
+    documentId: "eqlpup9qx0b96iwwj7ly2rc8",
+    title: "Деревянный каркас",
+    slug: "derevyannyj-karkas",
+    createdAt: "2024-10-22T08:51:26.395Z",
+    updatedAt: "2024-10-22T08:51:26.395Z",
+    publishedAt: "2024-10-22T08:51:26.408Z",
+    locale: null,
+  },
+];
 
 const formatParams = (data) => {
-  return data.map(item => {
-    return item.slug
-  })
-}
+  return data.map((item) => {
+    return item.slug;
+  });
+};
 
 const CatalogCardProduct = () => {
   const searchParams = useSearchParams();
@@ -110,14 +110,16 @@ const CatalogCardProduct = () => {
   if (isLoading) return <div>Loading...</div>; // Обработка загрузки
   if (error) return <div>Error: {error.message}</div>; // Обработка ошибок
   if (!data) return null;
-console.log(data)
+
   const list: Item[] = data.data.map((item: any) => {
+    const allFilters = [...item.filterParameters, ...item.filterTypes];
+
     return {
       id: item.id,
       title: item.title,
       description: item.dimensions,
       imgUrl: "http://localhost:1337" + item.banner.url,
-      params: formatParams(item.filterParameters),
+      params: formatParams(allFilters),
       price: item.price,
       link: `/catalog/${item.slug}`,
     };
@@ -131,7 +133,11 @@ console.log(data)
     }
     if (!current.has("selected")) return true;
 
-    return item.params.some((filter) => current.has("selected", filter));
+    // список всех выбранных фильтров
+    const selectedFilters = current.getAll("selected");
+
+    // проверяем на то, что каждый элемент из выбранных фильтров включен в params
+    return selectedFilters.every((filter) => item.params.includes(filter));
   });
 
   const product = filteredData.map((item: Item) => (

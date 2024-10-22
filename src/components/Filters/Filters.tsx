@@ -6,6 +6,8 @@ import CheckboxList from "./CheckboxList";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { it } from "node:test";
+import FiltersParameters from "./FilterGroups/FiltersParameters";
+import FiltersTypes from "./FilterGroups/FiltersTypes";
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,7 +28,7 @@ const WrapperParameters = styled.div`
   }
 `;
 
-const Parameters = styled.div`
+export const Parameters = styled.div`
   font-size: 18px;
   font-weight: bold;
   margin-top: 40px;
@@ -51,26 +53,14 @@ const type = [
   { title: "Для кухни", value: "4" },
 ];
 
-const formatFilters = (data: any) => {
+export const formatFilters = (data: any) => {
   return data.data.map((item) => {
     return { title: item.title, value: item.slug };
   });
 };
 
 const Filters = () => {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["filter-parameters"],
-    queryFn: async () => {
-      const result = await axios.get(
-        "http://localhost:1337/api/filter-parameters"
-      );
-
-      return result.data;
-    },
-  });
-  if (!data) return null
-
-  const parameters = formatFilters(data);
+  
 
   return (
     <div>
@@ -78,24 +68,11 @@ const Filters = () => {
         <Title>Фильтры</Title>
       </Wrapper>
       <WrapperParameters>
-        <Parameters>Параметры</Parameters>
-        {parameters?.map((item) => {
-          return (
-            <ButtonFrame
-              value={item.value}
-              title={item.title}
-              key={item.value}
-            />
-          );
-        })}
+     <FiltersParameters/>
 
         <Parameters>Типы</Parameters>
       </WrapperParameters>
-      {type.map((item) => {
-        return (
-          <ButtonFrame value={item.value} title={item.title} key={item.value} />
-        );
-      })}
+      <FiltersTypes/>
       <Parameters>Срок изготовления</Parameters>
       <Dropdown />
       <Parameters>Цена изделия</Parameters>
