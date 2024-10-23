@@ -16,6 +16,7 @@ import WickerBasketForTheKitchen from "../images/WickerBasketForTheKitchen.png";
 import RunningLine from "@/components/RunningLine/RunningLine";
 import { media } from "@/constants/media";
 import Link from "next/link";
+import Reviews from "@/components/Reviews/Reviews";
 
 const WrapperProductCard = styled.div`
   display: flex;
@@ -99,6 +100,7 @@ export default function Home() {
           <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
         </Link>
       </WrapperProductCard>
+      <Reviews />
     </div>
   );
 }
