@@ -2,39 +2,20 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import CheckboxMui from "@mui/material/Checkbox";
 
 interface Checkbox {
-  value: number;
+  value: string;
   label: string;
+  onClick: () => undefined;
+  checked: boolean
 }
 
-const Checkbox = ({ value, label }: Checkbox) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-
-  const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
-
-  const active = current.has("max-price", value.toString());
-  const handleClick = () => {
-    if (active) {
-      current.delete("max-price", value.toString());
-    } else {
-      current.set("max-price", value.toString());
-    }
-
-    const search = current.toString();
-
-    const query = search ? `?${search}` : "";
-
-    router.push(`${pathname}${query}`, { scroll: false });
-  };
+const Checkbox = ({ value, label, onClick, checked}: Checkbox) => {
+  
   return (
     <>
       <CheckboxMui
-        checked={active}
+        checked={checked}
         color="default"
-        onClick={() => {
-          handleClick();
-        }}
+        onClick={onClick}
       />
       {label}
     </>
