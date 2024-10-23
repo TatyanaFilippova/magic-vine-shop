@@ -139,7 +139,7 @@ const Goods = () => {
   const params = useParams<{ slug: string }>();
 
   const { data } = useQuery({
-    queryKey: ["productDetail"],
+    queryKey: ["productDetail", params.slug],
     queryFn: async () => {
       const result = await axios.get(
         `http://localhost:1337/api/products?populate=*&filters[slug][$eq]=${params.slug}`
