@@ -22,6 +22,10 @@ const ImgCard = styled.img`
   width: 100%;
   height: 327px;
   object-fit: cover;
+
+  ${media.tablet} {
+    height: 250px;
+  }
 `;
 
 const Title = styled.div`
@@ -38,6 +42,7 @@ const Title = styled.div`
 
   ${media.phone} {
     font-size: 20px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -52,6 +57,8 @@ const Description = styled.div`
 
   ${media.phone} {
     font-size: 15px;
+    height: 20px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -69,7 +76,7 @@ export const ButtonProductCard = styled.button`
     font-size: 15px;
     width: 250px;
     margin-bottom: 40px;
-    margin-top: 10px;
+    margin-top: 0px;
   }
 `;
 

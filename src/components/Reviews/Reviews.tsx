@@ -1,4 +1,5 @@
 import { button, layout } from "@/constants/layout";
+import { media } from "@/constants/media";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useScroll } from "framer-motion";
@@ -18,6 +19,11 @@ const WrapperTitle = styled.div`
   font-size: 40px;
   margin-bottom: 80px;
   margin-top: 180px;
+
+  ${media.phone} {
+    font-size: 24px;
+    margin-top: 140px;
+  }
 `;
 
 const WrapperBlock = styled.div`
@@ -26,12 +32,26 @@ const WrapperBlock = styled.div`
   align-items: center;
   width: 30%;
   margin-bottom: 40px;
+
+  ${media.phone} {
+    width: 100%;
+  }
 `;
 
 const Title = styled.div`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+
+  ${media.tablet} {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  ${media.phone} {
+    font-size: 20px;
+    text-align: center;
+  }
 `;
 
 const Review = styled.div`
@@ -70,6 +90,14 @@ const WrapperButton = styled.div`
 
   justify-content: flex-end;
   ${layout}
+
+  ${media.tablet} {
+    margin-top: 0px;
+  }
+
+  ${media.phone} {
+    margin-top: 0px;
+  }
 `;
 
 const formatReviews = (data) => {

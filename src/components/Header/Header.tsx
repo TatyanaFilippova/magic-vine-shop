@@ -4,6 +4,7 @@ import styled from "styled-components";
 import icon from "./icon.png";
 import { media } from "@/constants/media";
 import { layout } from "@/constants/layout";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,8 +35,9 @@ const Img = styled.img`
     padding: 10px;
   }
 `;
-const Text = styled.div`
+const Text = styled(Link)`
   font-size: 20px;
+  color: black;
 
   ${media.tablet} {
     padding: 10px;
@@ -47,11 +49,11 @@ const Text = styled.div`
 const Header = () => {
   return (
     <Wrapper>
-      <Text>Каталог</Text>
-      <Text>Условия и доставка</Text>
+      <Text href={"#"}>Главная</Text>
+      <Text href={"#"}>Каталог</Text>
       <Img src={icon.src} />
-      <Text>Сотрудничество</Text>
-      <Text>Связаться с нами</Text>
+      <Text href={"/#about-us"}>О нас</Text>
+      <Text href={"#"}>Доставка и оплата</Text>
     </Wrapper>
   );
 };

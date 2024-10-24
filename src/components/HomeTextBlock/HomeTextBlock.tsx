@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   }
 
   ${media.phone} {
-    margin-bottom: 40px;
   }
 `;
 

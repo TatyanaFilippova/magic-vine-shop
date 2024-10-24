@@ -17,6 +17,7 @@ import RunningLine from "@/components/RunningLine/RunningLine";
 import { media } from "@/constants/media";
 import Link from "next/link";
 import Reviews from "@/components/Reviews/Reviews";
+import AboutUs from "@/components/AboutUs/AboutUs";
 
 const WrapperProductCard = styled.div`
   display: flex;
@@ -100,6 +101,7 @@ export default function Home() {
           <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
         </Link>
       </WrapperProductCard>
+      <AboutUs />
       <Reviews />
     </div>
   );
