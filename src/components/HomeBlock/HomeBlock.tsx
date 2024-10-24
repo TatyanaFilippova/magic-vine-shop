@@ -17,8 +17,7 @@ const Wrapper = styled.div`
   }
 
   ${media.phone} {
-    margin: 0 0 40px 0px;
-    flex-direction: column;
+    display: none
   }
 `;
 
@@ -38,7 +37,7 @@ const Text = styled.div`
 `;
 
 const Img = styled.img`
-  width: 50%;
+  width: 45%;
   object-fit: cover;
 
   ${media.tablet} {
@@ -54,6 +53,7 @@ const WrapperText = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 20%;
+  padding-right: 10px;
 `;
 
 const HomeBlock = () => {

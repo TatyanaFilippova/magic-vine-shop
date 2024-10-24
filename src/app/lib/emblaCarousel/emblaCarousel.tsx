@@ -22,8 +22,8 @@ const Embla = styled.div`
   }
 
   ${media.phone} {
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -35,6 +35,10 @@ const Embla__slide = styled.div`
   flex: 0 0 50%;
   min-width: 0;
   margin-right: 20px;
+
+  ${media.phone} {
+    flex: 0 0 60%;
+  }
 `;
 
 const Img = styled.img`
@@ -47,7 +51,7 @@ const Img = styled.img`
   }
 
   ${media.phone} {
-    height: 200px;
+    height: 250px;
   }
 `;
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 const Title = styled.div`
   font-size: 80px;
   margin-bottom: 20px;
+  margin-top: 30px;
 
   ${media.tablet} {
     text-align: center;
@@ -41,7 +42,7 @@ const Button = styled.button`
   width: 250px;
   height: 50px;
   border: none;
-
+  margin-bottom: 50px;
   ${media.phone} {
     font-size: 15px;
     margin-top: 35px;
