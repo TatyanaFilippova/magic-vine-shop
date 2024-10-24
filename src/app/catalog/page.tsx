@@ -30,8 +30,10 @@ const WrapperDiv = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+  padding-left: 80px;
+  padding-right: 50px;
 `;
 
 const WrapperFilters = styled.div`
@@ -51,7 +53,7 @@ interface ProductResult {
 }
 
 const WrapperProductCardColumn = styled.div`
-  width: 35%;
+  width: 44%;
   padding-bottom: 50px;
 
   ${media.tablet} {
@@ -132,8 +134,8 @@ const CatalogCardProduct = () => {
     if (selectedPrice && +selectedPrice < item.price) {
       return false;
     }
-    console.log(item.week);
-    if (weeks > item.week) {
+
+    if (+weeks < +item.week) {
       return false;
     }
     if (!current.has("selected")) return true;
