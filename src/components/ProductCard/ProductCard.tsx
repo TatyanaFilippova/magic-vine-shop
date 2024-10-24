@@ -20,7 +20,7 @@ const Card = styled.div`
 
 const ImgCard = styled.img`
   width: 100%;
-  height: 327px;
+  height: 380px;
   object-fit: cover;
 
   ${media.tablet} {
@@ -49,7 +49,7 @@ const Title = styled.div`
 const Description = styled.div`
   font-size: 20px;
   text-align: center;
-  height: 80px;
+  height: 60px;
 
   ${media.tablet} {
     font-size: 18px;
@@ -98,7 +98,7 @@ const Button = styled.button`
   width: 100%;
   height: 40px;
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const ProductCard: FC<ProductCardProps> = ({

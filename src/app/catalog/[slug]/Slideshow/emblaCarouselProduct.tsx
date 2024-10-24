@@ -30,7 +30,7 @@ const Embla__slide = styled.div`
 `;
 
 const Img = styled.img`
-  height: 550px;
+  height: 500px;
   object-fit: cover;
   width: 95%;
 
