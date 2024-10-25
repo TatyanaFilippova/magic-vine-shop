@@ -2,14 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { formatFilters } from "../Filters";
 import ButtonFrame from "../ButtonFrame";
+import cmsAxios from "@/configs/axios";
 
 const FiltersTypes = () =>{
     const { isLoading, error, data } = useQuery({
         queryKey: ["filter-types"],
         queryFn: async () => {
-          const result = await axios.get(
-            "http://localhost:1337/api/filter-types"
-          );
+          const result = await cmsAxios.get("/api/filter-types")
     
           return result.data;
         },

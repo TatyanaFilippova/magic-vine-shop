@@ -16,19 +16,19 @@ const Input = styled.input`
 const list = [
   {
     value: "2000",
-    title: "до 2000",
+    title: "до 2000 р.",
   },
   {
     value: "4000",
-    title: "до 4000",
+    title: "до 4000 р.",
   },
   {
     value: "6000",
-    title: "до 6000",
+    title: "до 6000 р.",
   },
   {
     value: "7000",
-    title: "до 7000",
+    title: "до 7000 р.",
   },
 ];
 

@@ -12,6 +12,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { layout } from "@/constants/layout";
 import { useParams } from "next/navigation";
+import cmsAxios from "@/configs/axios";
+import getCmsImage from "@/utils/get-cms-image";
 
 const Wrapper = styled.div`
   display: flex;
@@ -141,14 +143,14 @@ const Goods = () => {
   const { data } = useQuery({
     queryKey: ["productDetail", params.slug],
     queryFn: async () => {
-      const result = await axios.get(
-        `http://localhost:1337/api/products?populate=*&filters[slug][$eq]=${params.slug}`
+      const result = await cmsAxios.get(
+        `/api/products?populate=*&filters[slug][$eq]=${params.slug}`
       );
 
       return result.data;
     },
   });
-  console.log(data);
+
   const product: Product = data?.data?.[0];
 
   if (!product) return null;
@@ -165,7 +167,7 @@ const Goods = () => {
             <Description>{product.summary}</Description>
           </WrapperText>
         }
-        <ImgProduct $img={"http://localhost:1337" + product?.banner?.url} />
+        <ImgProduct $img={getCmsImage(product?.banner)} />
       </Wrapper>
       <DescriptionBlock />
       <EmblaCarouselProduct slider={product.slider} />

@@ -1,5 +1,7 @@
+import cmsAxios from "@/configs/axios";
 import { button, layout } from "@/constants/layout";
 import { media } from "@/constants/media";
+import getCmsImage from "@/utils/get-cms-image";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useScroll } from "framer-motion";
@@ -103,7 +105,7 @@ const WrapperButton = styled.div`
 const formatReviews = (data) => {
   return data.data.map((item) => {
     return {
-      icon: "http://localhost:1337" + item.avatar.url,
+      icon: getCmsImage(item.avatar),
       name: item.name,
       text: item.text,
     };
@@ -115,9 +117,7 @@ const Reviews = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const result = await axios.get(
-        "http://localhost:1337/api/reviews?populate=*"
-      );
+      const result = await cmsAxios.get("/api/reviews?populate=*");
 
       return formatReviews(result.data);
     },

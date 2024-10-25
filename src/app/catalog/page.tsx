@@ -7,7 +7,8 @@ import { layout } from "@/constants/layout";
 import { useQuery } from "@tanstack/react-query";
 import { media } from "@/constants/media";
 import { useSearchParams } from "next/navigation";
-import axios from "axios";
+import cmsAxios from "@/configs/axios";
+import getCmsImage from "@/utils/get-cms-image";
 
 const Title = styled.div`
   display: flex;
@@ -101,9 +102,7 @@ const CatalogCardProduct = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const result = await axios.get(
-        "http://localhost:1337/api/products?populate=*"
-      );
+      const result = await cmsAxios.get("/api/products?populate=*");
 
       return result.data;
     },
@@ -120,7 +119,7 @@ const CatalogCardProduct = () => {
       id: item.id,
       title: item.title,
       description: item.dimensions,
-      imgUrl: "http://localhost:1337" + item.banner.url,
+      imgUrl: getCmsImage(item.banner),
       params: formatParams(allFilters),
       price: item.price,
       link: `/catalog/${item.slug}`,
@@ -135,7 +134,7 @@ const CatalogCardProduct = () => {
       return false;
     }
 
-    if (+weeks < +item.week) {
+    if (weeks && +weeks < +item.week) {
       return false;
     }
     if (!current.has("selected")) return true;
