@@ -9,7 +9,11 @@ import {
   Theme,
   useTheme,
 } from "@mui/material";
-
+import { useState } from "react";
+import OrderFormSuccess from "./OrderFormSuccess";
+import cmsAxios from "@/configs/axios";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "next/navigation";
 
 const Wrapper = styled.div`
   display: flex;
@@ -114,10 +118,46 @@ const customTheme = (outerTheme: Theme) =>
     },
   });
 
-const OrderForm = (props: any) => {
-  const { setEmail, setNumber, setName } = props;
+const OrderForm = () => {
+  const params = useParams<{ slug: string }>();
+
+  const { data } = useQuery({
+    queryKey: ["productDetail", params.slug],
+    queryFn: async () => {
+      const result = await cmsAxios.get(
+        `/api/products?populate=*&filters[slug][$eq]=${params.slug}`
+      );
+
+      return result.data;
+    },
+  });
+
+  const product = data?.data?.[0];
+
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [isSuccess, setSuccess] = useState(false);
 
   const outerTheme = useTheme();
+
+  const submit = async () => {
+    await cmsAxios.post("/api/orders", {
+      data: {
+        number: number,
+        name: name,
+        email: email,
+        product: product?.id,
+      },
+    });
+    setSuccess(true);
+  };
+
+  if (isSuccess) {
+    return <OrderFormSuccess />;
+  }
+
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
       <Wrapper>
@@ -132,6 +172,7 @@ const OrderForm = (props: any) => {
             <TextField
               fullWidth={true}
               margin="normal"
+              value={name}
               label="Name"
               variant="outlined"
               placeholder="Введите ваше ФИО"
@@ -151,6 +192,7 @@ const OrderForm = (props: any) => {
               fullWidth={true}
               margin="normal"
               label="Number"
+              value={number}
               variant="outlined"
               placeholder="Введите ваш номер телефона"
               onChange={(e) => setNumber(e.target.value)}
@@ -168,6 +210,7 @@ const OrderForm = (props: any) => {
               fullWidth={true}
               margin="normal"
               label="Email"
+              value={email}
               variant="outlined"
               placeholder="Введите ваш email"
               onChange={(e) => setEmail(e.target.value)}
@@ -182,7 +225,7 @@ const OrderForm = (props: any) => {
             />
           </FieldWrapper>
 
-          <Button>Отправить</Button>
+          <Button onClick={() => submit()}>Отправить</Button>
         </Div>
       </Wrapper>
     </ThemeProvider>
