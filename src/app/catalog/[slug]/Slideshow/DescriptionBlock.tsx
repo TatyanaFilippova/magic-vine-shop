@@ -27,11 +27,15 @@ const Button = styled.button`
   background-color: #526468;
   color: white;
 
+  ${media.tablet} {
+    width: 240px;
+  }
   ${media.phone} {
     width: 100%;
     align-items: center;
     margin-top: 0;
     padding: 10px;
+    font-size: 16px;
   }
 `;
 const WrapperTitle = styled.div`
@@ -40,7 +44,7 @@ const WrapperTitle = styled.div`
   width: 40%;
 
   ${media.tablet} {
-    width: 55%;
+    width: 60%;
     text-align: center;
     padding: 10px;
   }

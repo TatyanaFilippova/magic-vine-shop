@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 import { media } from "@/constants/media";
+import getCmsImage from "@/utils/get-cms-image";
 
 const Embla = styled.div`
   overflow: hidden;
@@ -27,6 +28,10 @@ const Embla__container = styled.div`
 const Embla__slide = styled.div`
   flex: 0 0 40%;
   min-width: 0;
+
+  ${media.phone} {
+    flex: 0 0 70%;
+  }
 `;
 
 const Img = styled.img`
@@ -39,7 +44,7 @@ const Img = styled.img`
   }
 
   ${media.phone} {
-    height: 200px;
+    height: 300px;
   }
 `;
 
@@ -64,7 +69,7 @@ export function EmblaCarouselProduct({ slider }: EmblaProps) {
         {slider?.map((item) => {
           return (
             <Embla__slide key={item.url}>
-              <Img src={"http://localhost:1337" + item.url} />
+              <Img src={getCmsImage(item)} />
             </Embla__slide>
           );
         })}

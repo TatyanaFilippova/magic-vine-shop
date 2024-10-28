@@ -41,9 +41,15 @@ const Description = styled.div`
   line-height: 1.4;
   white-space: break-spaces;
 
+  ${media.tablet} {
+    width: auto;
+  }
+
   ${media.phone} {
     font-size: 15px;
     text-align: center;
+
+    ${layout}
   }
 `;
 
@@ -74,7 +80,7 @@ const WrapperText = styled.div`
   ${media.tablet} {
     width: 100%;
     margin-top: 100px;
-    padding: 40px;
+    padding: 0 40px;
   }
 
   ${media.phone} {
@@ -113,10 +119,29 @@ const Button = styled.div`
   width: 460px;
   padding: 10px;
   text-align: center;
+
+  ${media.phone} {
+    width: auto;
+    height: auto;
+  }
 `;
 
 const Shell = styled.div`
   margin: 40px;
+
+  ${media.phone} {
+    ${layout}
+  }
+`;
+
+const DivTitle = styled.div`
+  display: none;
+
+  ${media.phone} {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+  }
 `;
 
 interface Product {
@@ -172,6 +197,7 @@ const Goods = () => {
       <DescriptionBlock />
       <EmblaCarouselProduct slider={product.slider} />
       <Shell>
+        <DivTitle>Особенности</DivTitle>
         <Table12
           material={product.material}
           delivery={product.delivery}
