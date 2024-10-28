@@ -19,6 +19,7 @@ const Title = styled.div`
 
   ${media.phone} {
     font-size: 30px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -35,6 +36,16 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   padding-left: 80px;
   padding-right: 50px;
+ 
+  ${media.tablet} {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  ${media.phone} {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 const WrapperFilters = styled.div`
@@ -163,10 +174,7 @@ const CatalogCardProduct = () => {
         <WrapperFilters>
           <Filters></Filters>
         </WrapperFilters>
-        <Wrapper>
-          {product}
-          <div />
-        </Wrapper>
+        <Wrapper>{product}</Wrapper>
       </WrapperDiv>
     </div>
   );

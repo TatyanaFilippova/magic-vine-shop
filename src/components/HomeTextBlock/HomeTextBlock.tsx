@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   }
 
   ${media.phone} {
+    margin-bottom: 50px;
   }
 `;
 
@@ -26,11 +27,11 @@ const Text = styled.div`
 
   ${media.tablet} {
     font-size: 20px;
-    width: auto;
+    width: 600px;
   }
 
   ${media.phone} {
-    font-size: 15px;
+    font-size: 16px;
     width: auto;
   }
 `;

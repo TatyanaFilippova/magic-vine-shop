@@ -14,6 +14,8 @@ import OrderFormSuccess from "./OrderFormSuccess";
 import cmsAxios from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
+import { media } from "@/constants/media";
+import { layout } from "@/constants/layout";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,6 +24,10 @@ const Wrapper = styled.div`
   margin-bottom: 100px;
   background-color: #bcc0b4;
   text-align: center;
+
+  ${media.phone} {
+    ${layout}
+  }
 `;
 
 const Div = styled.div`
@@ -31,6 +37,10 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.phone} {
+    width: auto;
+  }
 `;
 
 const Img2 = styled.img`
@@ -41,10 +51,29 @@ const Img2 = styled.img`
   bottom: 0;
   box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
   margin-bottom: 10px;
+
+  ${media.tablet} {
+    width: 300px;
+    height: 300px;
+  }
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const FieldWrapper = styled.div`
   width: 630px;
+
+  ${media.tablet} {
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  ${media.phone} {
+    width: auto;
+  }
 `;
 
 const Img1 = styled.img`
@@ -55,12 +84,29 @@ const Img1 = styled.img`
   top: 0;
   z-index: 2;
   box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
+
+  ${media.tablet} {
+    width: 300px;
+    height: 300px;
+  }
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const Title = styled.div`
   font-size: 36px;
   text-align: center;
   padding-top: 36px;
+
+  ${media.tablet} {
+    font-size: 32px;
+  }
+
+  ${media.phone} {
+    font-size: 30px;
+  }
 `;
 
 const Button = styled.div`
@@ -73,12 +119,20 @@ const Button = styled.div`
   text-align: center;
   padding-top: 15px;
   cursor: pointer;
+
+  ${media.phone} {
+    font-size: 16px;
+  }
 `;
 
 const Description = styled.div`
   font-size: 20px;
   text-align: center;
   margin-bottom: 20px;
+
+  ${media.phone} {
+    font-size: 16px;
+  }
 `;
 
 const customTheme = (outerTheme: Theme) =>
@@ -143,14 +197,14 @@ const OrderForm = () => {
   const outerTheme = useTheme();
 
   const submit = async () => {
-    await cmsAxios.post("/api/orders", {
-      data: {
-        number: number,
-        name: name,
-        email: email,
-        product: product?.id,
-      },
-    });
+    // await cmsAxios.post("/api/orders", {
+    //   data: {
+    //    number: number,
+    //    name: name,
+    //    email: email,
+    //   product: product?.id,
+    //  },
+    //});
     setSuccess(true);
   };
 

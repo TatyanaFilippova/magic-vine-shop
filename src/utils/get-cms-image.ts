@@ -1,3 +1,3 @@
-const getCmsImage = (image) => "http://localhost:1337" + image.url;
+const getCmsImage = (image) => "https://cms.unclespace.ru" + image?.url;
 
 export default getCmsImage;

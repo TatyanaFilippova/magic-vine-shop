@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import imgForm from './imgForm.png'
-import imgForm2 from './imgForm2.png'
+import imgForm from "./imgForm.png";
+import imgForm2 from "./imgForm2.png";
+import { media } from "@/constants/media";
+import { layout } from "@/constants/layout";
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,6 +11,10 @@ const Wrapper = styled.div`
   margin-bottom: 100px;
   background-color: #bcc0b4;
   text-align: center;
+
+  ${media.phone} {
+    ${layout}
+  }
 `;
 
 const Div = styled.div`
@@ -18,6 +24,10 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${media.phone} {
+    width: auto;
+  }
 `;
 
 const Img2 = styled.img`
@@ -28,10 +38,20 @@ const Img2 = styled.img`
   bottom: 0;
   box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
   margin-bottom: 10px;
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const FieldWrapper = styled.div`
-  width: 630px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+
+  ${media.phone} {
+    padding-right: 0px;
+  }
 `;
 
 const Img1 = styled.img`
@@ -42,12 +62,30 @@ const Img1 = styled.img`
   top: 0;
   z-index: 2;
   box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
+
+  ${media.phone} {
+    display: none;
+  }
 `;
 
 const Title = styled.div`
   font-size: 36px;
   text-align: center;
-  padding-top: 36px;
+  padding-top: 160px;
+
+  ${media.phone} {
+    font-size: 30px;
+  }
+`;
+
+const Text = styled.div`
+  font-size: 20px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+
+  ${media.phone} {
+    font-size: 16px;
+  }
 `;
 
 const OrderFormSuccess = () => {
@@ -58,6 +96,13 @@ const OrderFormSuccess = () => {
           <Img1 src={imgForm.src} />
           <Img2 src={imgForm2.src} />
         </Div>
+        <FieldWrapper>
+          <Title>Спасибо за ваш заказ! </Title>
+          <Text>
+            В кратчайшие сроки мы свяжемся с вами, чтобы обсудить все детали.
+            <div>Ожидайте нашего звонка или сообщения.</div>
+          </Text>
+        </FieldWrapper>
       </Wrapper>
       ;
     </>
