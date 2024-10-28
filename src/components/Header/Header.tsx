@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import icon from "./icon.png";
 import { media } from "@/constants/media";
-import { layout } from "@/constants/layout";
+
 import Link from "next/link";
 
 const Wrapper = styled.div`
@@ -49,11 +49,11 @@ const Text = styled(Link)`
 const Header = () => {
   return (
     <Wrapper>
-      <Text href={"#"}>Главная</Text>
-      <Text href={"#"}>Каталог</Text>
+      <Text href={"/"}>Главная</Text>
+      <Text href={"/catalog"}>Каталог</Text>
       <Img src={icon.src} />
       <Text href={"/#about-us"}>О нас</Text>
-      <Text href={"#"}>Доставка и оплата</Text>
+      <Text href={"/#delivery"}>Доставка и оплата</Text>
     </Wrapper>
   );
 };

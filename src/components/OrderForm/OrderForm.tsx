@@ -84,6 +84,7 @@ const Img1 = styled.img`
   top: 0;
   z-index: 2;
   box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
+  margin-top: 10px;
 
   ${media.tablet} {
     width: 300px;
@@ -172,7 +173,7 @@ const customTheme = (outerTheme: Theme) =>
     },
   });
 
-const OrderForm = () => {
+const OrderForm = ({ id }: { id: string }) => {
   const params = useParams<{ slug: string }>();
 
   const { data } = useQuery({
@@ -220,7 +221,7 @@ const OrderForm = () => {
           <Img2 src={imgForm2.src} />
         </Div>
         <Div>
-          <Title>Форма заказа</Title>
+          <Title id={id}>Форма заказа</Title>
           <Description>Введите ваши данные</Description>
           <FieldWrapper>
             <TextField

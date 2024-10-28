@@ -62,6 +62,7 @@ const Img1 = styled.img`
   top: 0;
   z-index: 2;
   box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
+  margin-top: 10px;
 
   ${media.phone} {
     display: none;

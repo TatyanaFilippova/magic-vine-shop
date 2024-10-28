@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   padding-left: 80px;
   padding-right: 50px;
- 
+
   ${media.tablet} {
     padding-left: 0;
     padding-right: 0;

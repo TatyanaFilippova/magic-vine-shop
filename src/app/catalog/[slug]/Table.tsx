@@ -33,6 +33,7 @@ interface TableProps {
   delivery: string;
   dimensions: string;
   colors: string;
+  id?: string;
 }
 
 const Table: FC<TableProps> = ({
@@ -41,6 +42,7 @@ const Table: FC<TableProps> = ({
   delivery,
   dimensions,
   colors,
+  id,
 }) => {
   const data = [
     { parameters: "Материал", name: material },
@@ -51,7 +53,7 @@ const Table: FC<TableProps> = ({
   ];
 
   return (
-    <WrapperTable>
+    <WrapperTable id={id}>
       <tbody>
         {data.map((person) => (
           <tr key={person.parameters}>
