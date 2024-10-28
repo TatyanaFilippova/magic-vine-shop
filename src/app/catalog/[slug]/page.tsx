@@ -56,7 +56,7 @@ const Description = styled.div`
 const ImgProduct = styled.div<{ $img: string }>`
   background: ${(props) => `url(${props.$img})`};
   background-repeat: no-repeat;
-  height: 700px;
+  height: 750px;
   width: 100%;
   background-size: cover;
 
@@ -195,10 +195,11 @@ const Goods = () => {
         <ImgProduct $img={getCmsImage(product?.banner)} />
       </Wrapper>
       <DescriptionBlock />
-      <EmblaCarouselProduct slider={product.slider} />
+      <EmblaCarouselProduct slider={product.slider} id="photo" />
       <Shell>
         <DivTitle>Особенности</DivTitle>
         <Table12
+          id="peculiarities"
           material={product.material}
           delivery={product.delivery}
           dimensions={product.dimensions}
@@ -212,7 +213,7 @@ const Goods = () => {
           "Оставьте вашу заявку на понравившийся товар, и мы обязательно свяжемся с вами для обсуждения и уточнения всех ваших предложений, изменений и цены. "
         }
       />
-      <OrderForm />
+      <OrderForm id="orderForm" />
     </>
   );
 };

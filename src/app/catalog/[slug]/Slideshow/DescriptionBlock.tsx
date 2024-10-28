@@ -1,6 +1,7 @@
 import { layout } from "@/constants/layout";
 import styled from "styled-components";
 import { media } from "@/constants/media";
+import Link from "next/link";
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,9 +16,10 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled(Link)`
   font-size: 18px;
   align-items: center;
+  color: black;
 `;
 
 const Button = styled.button`
@@ -58,9 +60,9 @@ const DescriptionBlock = () => {
   return (
     <Wrapper>
       <WrapperTitle>
-        <Title>Фотогаллерея</Title>
-        <Title>Особенности</Title>
-        <Title>Форма заказа</Title>
+        <Title href={"#photo"}>Фотогаллерея</Title>
+        <Title href={"#peculiarities"}>Особенности</Title>
+        <Title href={"#orderForm"}>Форма заказа</Title>
       </WrapperTitle>
       <Button>Задать нам вопрос</Button>
     </Wrapper>

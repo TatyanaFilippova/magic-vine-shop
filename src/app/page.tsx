@@ -18,6 +18,7 @@ import { media } from "@/constants/media";
 import Link from "next/link";
 import Reviews from "@/components/Reviews/Reviews";
 import AboutUs from "@/components/AboutUs/AboutUs";
+import delivery from ".//../../public/images/delivery.png";
 
 const WrapperProductCard = styled.div`
   display: flex;
@@ -52,6 +53,27 @@ const WrapperProductCardColumn = styled.div`
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
+  }
+`;
+
+const Img = styled.img`
+  width: 980px;
+`;
+
+const DeliveryBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+
+  ${layout}
+`;
+const TitleDelivery = styled.div`
+  font-size: 40px;
+  margin-bottom: 100px;
+
+  ${media.phone} {
+    font-size: 24px;
   }
 `;
 
@@ -102,6 +124,11 @@ export default function Home() {
         </Link>
       </WrapperProductCard>
       <AboutUs />
+      <DeliveryBlock>
+        <TitleDelivery id="delivery">Доставка и оплата</TitleDelivery>
+        <Img src={delivery.src} />
+      </DeliveryBlock>
+
       <Reviews />
     </div>
   );

@@ -52,9 +52,10 @@ interface EmblaProps {
   slider: {
     url: string;
   }[];
+  id?: string;
 }
 
-export function EmblaCarouselProduct({ slider }: EmblaProps) {
+export function EmblaCarouselProduct({ slider, id }: EmblaProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   useEffect(() => {
@@ -65,7 +66,7 @@ export function EmblaCarouselProduct({ slider }: EmblaProps) {
 
   return (
     <Embla ref={emblaRef}>
-      <Embla__container>
+      <Embla__container id={id}>
         {slider?.map((item) => {
           return (
             <Embla__slide key={item.url}>
