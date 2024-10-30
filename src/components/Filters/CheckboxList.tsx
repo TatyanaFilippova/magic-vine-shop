@@ -64,7 +64,6 @@ const CheckboxList = () => {
               onClick={() => {
                 handleClick(item.value);
               }}
-              value={item.value}
               label={item.title}
             />
           </Text>

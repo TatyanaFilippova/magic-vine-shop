@@ -58,11 +58,7 @@ const WrapperFilters = styled.div`
   }
 `;
 
-interface ProductResult {
-  title: string;
-  description: string;
-  imgUrl: string;
-}
+
 
 const WrapperProductCardColumn = styled.div`
   width: 44%;

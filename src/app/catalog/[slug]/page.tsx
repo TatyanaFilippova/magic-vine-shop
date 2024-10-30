@@ -3,8 +3,8 @@
 import banner from "./banner.png";
 import styled from "styled-components";
 import { media } from "@/constants/media";
-import DescriptionBlock from "./Slideshow/DescriptionBlock";
-import { EmblaCarouselProduct } from "./Slideshow/emblaCarouselProduct";
+import DescriptionBlock from "./DetalPage/DescriptionBlock";
+import { EmblaCarouselProduct } from "./DetalPage/emblaCarouselProduct";
 import Table12 from "./Table";
 import HomeTextBlock from "@/components/HomeTextBlock/HomeTextBlock";
 import OrderForm from "@/components/OrderForm/OrderForm";
@@ -14,6 +14,7 @@ import { layout } from "@/constants/layout";
 import { useParams } from "next/navigation";
 import cmsAxios from "@/configs/axios";
 import getCmsImage from "@/utils/get-cms-image";
+import useProductDetailApi from "@/api/getProductDetail";
 
 const Wrapper = styled.div`
   display: flex;
@@ -144,69 +145,37 @@ const DivTitle = styled.div`
   }
 `;
 
-interface Product {
-  summary: string;
-  title: string;
-  tag: string;
-  banner: {
-    url: string;
-  };
-  material: string;
-  time: string;
-  delivery: string;
-  dimensions: string;
-  colors: string;
-  slider: {
-    url: string;
-  }[];
-  priceForm: string;
-}
-
 const Goods = () => {
   const params = useParams<{ slug: string }>();
-
-  const { data } = useQuery({
-    queryKey: ["productDetail", params.slug],
-    queryFn: async () => {
-      const result = await cmsAxios.get(
-        `/api/products?populate=*&filters[slug][$eq]=${params.slug}`
-      );
-
-      return result.data;
-    },
-  });
-
-  const product: Product = data?.data?.[0];
-
-  if (!product) return null;
-
+  const { data } = useProductDetailApi(params.slug);
+  if (!data) return null;
   return (
     <>
       <Wrapper>
         {
           <WrapperText>
-            <Title>{product.title}</Title>
+            <Title>{data.title}</Title>
             <WrapperHashtags>
-              <Hashtags>{product.tag}</Hashtags>
+              <Hashtags>{data.tag}</Hashtags>
             </WrapperHashtags>
-            <Description>{product.summary}</Description>
+            <Description>{data.summary}</Description>
           </WrapperText>
         }
-        <ImgProduct $img={getCmsImage(product?.banner)} />
+        <ImgProduct $img={getCmsImage(data?.banner)} />
       </Wrapper>
       <DescriptionBlock />
-      <EmblaCarouselProduct slider={product.slider} id="photo" />
+      <EmblaCarouselProduct slider={data.slider} id="photo" />
       <Shell>
         <DivTitle>Особенности</DivTitle>
         <Table12
           id="peculiarities"
-          material={product.material}
-          delivery={product.delivery}
-          dimensions={product.dimensions}
-          colors={product.colors}
-          time={product.time}
+          material={data.material}
+          delivery={data.delivery}
+          dimensions={data.dimensions}
+          colors={data.colors}
+          time={data.time}
         />
-        <Button>{product.priceForm}</Button>
+        <Button>{data.priceForm}</Button>
       </Shell>
       <HomeTextBlock
         text={

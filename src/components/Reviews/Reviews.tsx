@@ -112,7 +112,7 @@ const formatReviews = (data) => {
   });
 };
 
-const Reviews = () => {
+const Reviews = ({ id }: { id: string }) => {
   const [isOpen, setOpen] = useState(false);
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews"],
@@ -126,7 +126,7 @@ const Reviews = () => {
 
   return (
     <>
-      <WrapperTitle>Отзывы</WrapperTitle>
+      <WrapperTitle id={id}>Отзывы</WrapperTitle>
       <Wrapper>
         {data.slice(0, isOpen ? undefined : 3).map((item) => {
           const text =
