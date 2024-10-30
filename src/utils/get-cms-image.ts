@@ -1,3 +1,5 @@
-const getCmsImage = (image) => "https://cms.unclespace.ru" + image?.url;
+import { CMS_URL } from "@/constants";
+
+const getCmsImage = (image) => CMS_URL + image?.url;
 
 export default getCmsImage;

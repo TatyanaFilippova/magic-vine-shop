@@ -5,6 +5,7 @@ import icon from "../Header/icon.png";
 import iconVK from "./iconVK.png";
 import iconWhatsApp from "./iconWhatsApp.png";
 import { media } from "@/constants/media";
+import Link from "next/link";
 
 const WrapperLogoTitle = styled.div`
   align-items: center;
@@ -44,9 +45,10 @@ const ImgLogo = styled.img`
   padding-bottom: 40px;
 `;
 
-const Text = styled.div`
+const Text = styled(Link)`
   font-size: 18px;
   padding-bottom: 15px;
+  color: black;
 
   ${media.phone} {
     font-size: 15px;
@@ -105,18 +107,18 @@ const Footer = () => {
           <Title>Магия из бумажной лозы</Title>
         </WrapperLogoTitle>
         <WrapperText>
-          <Text>
+          <Text href={""}>
             Магазин плетеных корзинок и декора из бумажной лозы в г. Сыктывкар.
           </Text>
-          <Text>Доставка по всей России.</Text>
+          <Text href={""}>Доставка по всей России.</Text>
         </WrapperText>
       </Wrapper>
       <WrapperBlock>
         <WrapperBlockTitle>основные ссылки</WrapperBlockTitle>
-        <Text>Продукция</Text>
-        <Text>Как заказать</Text>
-        <Text>Отзывы</Text>
-        <Text>О нас</Text>
+        <Text href={"/catalog"}>Продукция</Text>
+        <Text href={"/#delivery"}>Как заказать</Text>
+        <Text href={"/#reviews"}>Отзывы</Text>
+        <Text href={"/#about-us"}>О нас</Text>
       </WrapperBlock>
       <WrapperBlockSekond>
         <WrapperBlockTitle>социальные сети</WrapperBlockTitle>

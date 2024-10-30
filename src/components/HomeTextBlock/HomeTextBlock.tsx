@@ -38,7 +38,7 @@ const Text = styled.div`
 
 const HomeTextBlock = ({ text, textSecond }: any) => {
   return (
-    <Wrapper>
+    <Wrapper >
       <Text>{text}</Text>
       <Text>{textSecond}</Text>
     </Wrapper>

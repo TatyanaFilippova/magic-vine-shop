@@ -6,19 +6,15 @@ import { EmblaCarousel } from "./lib/emblaCarousel/emblaCarousel";
 import HomeBlock from "@/components/HomeBlock/HomeBlock";
 import HomeBlockSecond from "@/components/HomeBlockSecond/HomeBlockSecond";
 import HomeTextBlock from "@/components/HomeTextBlock/HomeTextBlock";
-import ProductCard, {
-  ButtonProductCard,
-} from "@/components/ProductCard/ProductCard";
-import basketWithLid from "../images/basketWithLid.png";
-import wickerPouf from "../images/wickerPouf.png";
+import { ButtonProductCard } from "@/components/ProductCard/ProductCard";
 import { layout } from "@/constants/layout";
-import WickerBasketForTheKitchen from "../images/WickerBasketForTheKitchen.png";
 import RunningLine from "@/components/RunningLine/RunningLine";
 import { media } from "@/constants/media";
 import Link from "next/link";
 import Reviews from "@/components/Reviews/Reviews";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import delivery from ".//../../public/images/delivery.png";
+import HomeProductCards from "./lib/HomeProductCards";
 
 const WrapperProductCard = styled.div`
   display: flex;
@@ -93,31 +89,7 @@ export default function Home() {
           "Мы используем только экологически чистые материалы, чтобы вы могли наслаждаться красотой и безопасностью наших продуктов. "
         }
       />
-      <WrapperProductCard>
-        <WrapperProductCardColumn>
-          <ProductCard
-            imgCard={basketWithLid.src}
-            title={"Плетеная корзинка с крышкой"}
-            description={"Размеры: 18 см * 28 см, высота - 9 см"}
-          />
-        </WrapperProductCardColumn>
-        <WrapperProductCardColumn>
-          <ProductCard
-            imgCard={wickerPouf.src}
-            title={"Плетеный пуф"}
-            description={
-              "Размеры: диаметр - 36см, высота ножек - 23 см, высота пуфа - 40см"
-            }
-          />
-        </WrapperProductCardColumn>
-        <WrapperProductCardColumn>
-          <ProductCard
-            imgCard={WickerBasketForTheKitchen.src}
-            title={"Плетеная корзинка для кухни"}
-            description={"Размеры: 14 см * 20 см, высота - 9 см"}
-          />
-        </WrapperProductCardColumn>
-      </WrapperProductCard>
+      <HomeProductCards />
       <WrapperProductCard>
         <Link href="/catalog">
           <ButtonProductCard>Посмотреть весь каталог</ButtonProductCard>
@@ -129,7 +101,7 @@ export default function Home() {
         <Img src={delivery.src} />
       </DeliveryBlock>
 
-      <Reviews />
+      <Reviews id="reviews" />
     </div>
   );
 }

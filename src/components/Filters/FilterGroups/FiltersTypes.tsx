@@ -5,7 +5,7 @@ import ButtonFrame from "../ButtonFrame";
 import cmsAxios from "@/configs/axios";
 
 const FiltersTypes = () =>{
-    const { isLoading, error, data } = useQuery({
+    const { data } = useQuery({
         queryKey: ["filter-types"],
         queryFn: async () => {
           const result = await cmsAxios.get("/api/filter-types")

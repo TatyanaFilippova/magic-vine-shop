@@ -228,7 +228,7 @@ const OrderForm = ({ id }: { id: string }) => {
               fullWidth={true}
               margin="normal"
               value={name}
-              label="Name"
+              label="ФИО"
               variant="outlined"
               placeholder="Введите ваше ФИО"
               onChange={(e) => setName(e.target.value)}
@@ -246,7 +246,7 @@ const OrderForm = ({ id }: { id: string }) => {
               type="number"
               fullWidth={true}
               margin="normal"
-              label="Number"
+              label="Номер телефона"
               value={number}
               variant="outlined"
               placeholder="Введите ваш номер телефона"
@@ -264,7 +264,7 @@ const OrderForm = ({ id }: { id: string }) => {
             <TextField
               fullWidth={true}
               margin="normal"
-              label="Email"
+              label="Почта email"
               value={email}
               variant="outlined"
               placeholder="Введите ваш email"

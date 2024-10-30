@@ -2,6 +2,7 @@ import { layout } from "@/constants/layout";
 import styled from "styled-components";
 import { media } from "@/constants/media";
 import Link from "next/link";
+import ModalQuestion from "./ModalQuestion";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,24 +23,6 @@ const Title = styled(Link)`
   color: black;
 `;
 
-const Button = styled.button`
-  width: 274px;
-  height: 44px;
-  font-size: 18px;
-  background-color: #526468;
-  color: white;
-
-  ${media.tablet} {
-    width: 240px;
-  }
-  ${media.phone} {
-    width: 100%;
-    align-items: center;
-    margin-top: 0;
-    padding: 10px;
-    font-size: 16px;
-  }
-`;
 const WrapperTitle = styled.div`
   display: flex;
   justify-content: space-between;
@@ -64,7 +47,8 @@ const DescriptionBlock = () => {
         <Title href={"#peculiarities"}>Особенности</Title>
         <Title href={"#orderForm"}>Форма заказа</Title>
       </WrapperTitle>
-      <Button>Задать нам вопрос</Button>
+      
+      <ModalQuestion />
     </Wrapper>
   );
 };
