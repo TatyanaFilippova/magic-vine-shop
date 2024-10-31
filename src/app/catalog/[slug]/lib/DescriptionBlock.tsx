@@ -2,7 +2,7 @@ import { layout } from "@/constants/layout";
 import styled from "styled-components";
 import { media } from "@/constants/media";
 import Link from "next/link";
-import ModalQuestion from "./ModalQuestion";
+import ModalQuestion from "./ModalQuestion/ModalQuestion";
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const DescriptionBlock = () => {
         <Title href={"#peculiarities"}>Особенности</Title>
         <Title href={"#orderForm"}>Форма заказа</Title>
       </WrapperTitle>
-      
+
       <ModalQuestion />
     </Wrapper>
   );
