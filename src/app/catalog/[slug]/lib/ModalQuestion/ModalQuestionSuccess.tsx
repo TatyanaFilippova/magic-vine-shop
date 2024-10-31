@@ -73,6 +73,7 @@ const Title = styled.div`
 
 const Text = styled.div`
   font-size: 16px;
+  margin-top: 5px;
 `;
 
 const ButtonStyled = styled.div`
@@ -84,6 +85,7 @@ const ButtonStyled = styled.div`
   padding: 10px;
   text-align: center;
   cursor: pointer;
+  margin-top: 20px;
 `;
 
 const Wrapper = styled.div`
@@ -91,49 +93,24 @@ const Wrapper = styled.div`
   padding: 30px;
 `;
 
-//Modal.setAppElement('#yourAppElement');
+interface ModalQuestionSuccessProps {
+  closeModal: () => void;
+}
 
-const ModalQuestion = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
+const ModalQuestionSuccess = ({ closeModal }: ModalQuestionSuccessProps) => {
   return (
     <>
-      <Button onClick={openModal}>Задать нам вопрос</Button>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <Wrapper>
-          <Title>Задать вопрос</Title>
-          <form>
-            <Text>Ваше имя:</Text>
-            <InputStyled />
-          </form>
-          <form>
-            <Text>Электронная почта @email:</Text>
-            <InputStyled />
-          </form>
-          <form>
-            <Text>Ваш вопрос:</Text>
-            <Input />
-          </form>
-          <Div>
-            <ButtonStyled>Задать вопрос</ButtonStyled>
-            <ButtonStyled onClick={closeModal}>Закрыть</ButtonStyled>
-          </Div>
-        </Wrapper>
-      </Modal>
+      <Wrapper>
+        <Title>Вопрос отправлен</Title>
+        <Text>Спасибо за вопрос!</Text>
+        <Text>Мы обязательно свяжемся с Вами</Text>
+
+        <Div>
+          <ButtonStyled onClick={closeModal}>Закрыть</ButtonStyled>
+        </Div>
+      </Wrapper>
     </>
   );
 };
 
-export default ModalQuestion;
+export default ModalQuestionSuccess;

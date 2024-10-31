@@ -3,8 +3,8 @@
 import banner from "./banner.png";
 import styled from "styled-components";
 import { media } from "@/constants/media";
-import DescriptionBlock from "./DetalPage/DescriptionBlock";
-import { EmblaCarouselProduct } from "./DetalPage/emblaCarouselProduct";
+import DescriptionBlock from "./lib/DescriptionBlock";
+import { EmblaCarouselProduct } from "./lib/emblaCarouselProduct";
 import Table12 from "./Table";
 import HomeTextBlock from "@/components/HomeTextBlock/HomeTextBlock";
 import OrderForm from "@/components/OrderForm/OrderForm";
