@@ -5,7 +5,7 @@ import EmblaCarousel from "./lib/EmblaCarousel/EmblaCarousel";
 import HomeBlock from "@/app/lib/HomeBlock/HomeBlock";
 import HomeBlockSecond from "@/app/lib/HomeBlockSecond/HomeBlockSecond";
 import HomeTextBlock from "@/app/lib/HomeTextBlock/HomeTextBlock";
-import { ButtonProductCard } from "@/app/catalog/lib/ProductCard/ProductCard";
+import { ButtonProductCard } from "././catalog/lib/ProductCard/styles";
 import RunningLine from "@/app/lib/RunningLine/RunningLine";
 import Link from "next/link";
 import Reviews from "@/app/lib/Reviews/Reviews";

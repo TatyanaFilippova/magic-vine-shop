@@ -59,6 +59,24 @@ export const Description = styled.div`
   }
 `;
 
+export const ButtonProductCard = styled.button`
+  background: #526468;
+  font-size: 20px;
+  width: 300px;
+  color: white;
+  align-items: center;
+  margin-bottom: 50px;
+  height: 60px;
+  margin-top: 50px;
+
+  ${media.phone} {
+    font-size: 15px;
+    width: 250px;
+    margin-bottom: 40px;
+    margin-top: 0px;
+  }
+`;
+
 export const Button = styled.button`
   background-color: #526468;
   color: white;

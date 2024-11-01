@@ -21,6 +21,24 @@ export const WrapperProductCard = styled.div`
   }
 `;
 
+export const WrapperProductCardColumn = styled.div`
+  width: 25%;
+
+  ${media.tablet} {
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+  }
+  ${media.phone} {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+`;
+
 export const Img = styled.img`
   width: 980px;
 `;

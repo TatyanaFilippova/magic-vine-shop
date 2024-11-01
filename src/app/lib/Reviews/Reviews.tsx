@@ -1,17 +1,24 @@
 import cmsAxios from "@/configs/axios";
-import { button, layout } from "@/constants/layout";
-import { media } from "@/constants/media";
 import getCmsImage from "@/utils/get-cms-image";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useScroll } from "framer-motion";
 import { useState } from "react";
-import styled from "styled-components";
-import {Button,Img,Review,Title,Wrapper,WrapperBlock,WrapperButton,WrapperTitle} from "./styles"
 
+import {
+  Button,
+  Img,
+  Review,
+  Title,
+  Wrapper,
+  WrapperBlock,
+  WrapperButton,
+  WrapperTitle,
+} from "./styles";
 
+interface FormatReviewsData {
+  data: { avatar: string; name: string; text: string }[];
+}
 
-const formatReviews = (data) => {
+const formatReviews = (data: FormatReviewsData) => {
   return data.data.map((item) => {
     return {
       icon: getCmsImage(item.avatar),

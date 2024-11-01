@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import imgForm from "./assets/imgForm.png";
 import imgForm2 from "./assets/imgForm2.png";
 import {
@@ -14,7 +13,16 @@ import OrderFormSuccess from "./OrderFormSuccess";
 import cmsAxios from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import {Button,Description,FieldWrapper,Img1,Img2,Title,Wrapper,Div} from "./styles"
+import {
+  Button,
+  Description,
+  FieldWrapper,
+  Img1,
+  Img2,
+  Title,
+  Wrapper,
+  Div,
+} from "./styles";
 
 const customTheme = (outerTheme: Theme) =>
   createTheme({

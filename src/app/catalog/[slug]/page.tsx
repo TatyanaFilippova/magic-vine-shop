@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { media } from "@/constants/media";
 import DescriptionBlock from "./lib/DescriptionBlock";
 import { EmblaCarouselProduct } from "./lib/emblaCarouselProduct";
-import Table12 from "./Table";
+import Table12 from "./lib/Table";
 import HomeTextBlock from "@/app/lib/HomeTextBlock/HomeTextBlock";
 import OrderForm from "@/app/catalog/[slug]/lib/OrderForm/OrderForm";
 import { useQuery } from "@tanstack/react-query";
