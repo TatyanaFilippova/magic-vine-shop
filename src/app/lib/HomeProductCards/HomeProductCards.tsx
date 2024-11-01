@@ -1,5 +1,5 @@
 import useHomeCards from "@/api/getHomeCards";
-import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductCard from "@/app/catalog/lib/ProductCard/ProductCard";
 import { WrapperProductCard, WrapperProductCardColumn } from "./styles";
 
 const HomeProductCards = () => {

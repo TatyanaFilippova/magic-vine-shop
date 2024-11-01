@@ -1,6 +1,6 @@
 "use client";
 
-import ProductCard from "@/components/ProductCard/ProductCard";
+import ProductCard from "@/app/catalog/lib/ProductCard/ProductCard";
 import Filters from "@/components/Filters/Filters";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";

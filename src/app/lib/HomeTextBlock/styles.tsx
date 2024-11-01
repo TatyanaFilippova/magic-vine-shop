@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { media } from "@/constants/media";
 import { layout } from "@/constants/layout";
+import { media } from "@/constants/media";
+import styled from "styled-components";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Text = styled.div`
+export const Text = styled.div`
   text-align: center;
   font-size: 30px;
   width: 800px;
@@ -35,14 +35,3 @@ const Text = styled.div`
     width: auto;
   }
 `;
-
-const HomeTextBlock = ({ text, textSecond }: any) => {
-  return (
-    <Wrapper >
-      <Text>{text}</Text>
-      <Text>{textSecond}</Text>
-    </Wrapper>
-  );
-};
-
-export default HomeTextBlock;

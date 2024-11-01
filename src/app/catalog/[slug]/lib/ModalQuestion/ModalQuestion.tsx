@@ -1,4 +1,4 @@
-import OrderFormSuccess from "@/components/OrderForm/OrderFormSuccess";
+import OrderFormSuccess from "@/app/catalog/[slug]/lib/OrderForm/OrderFormSuccess";
 import { media } from "@/constants/media";
 import React, { useState } from "react";
 import Modal from "react-modal";
