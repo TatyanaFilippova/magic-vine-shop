@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import imgHomeBlockSecond from "./imgHomeBlockSecond.png";
+import imgHomeBlockSecond from "./assets/imgHomeBlockSecond.png";
 import { Fade } from "react-awesome-reveal";
 import { media } from "@/constants/media";
 import { layout } from "@/constants/layout";

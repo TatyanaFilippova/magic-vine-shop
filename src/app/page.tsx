@@ -1,9 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import HomeBanner from "@/components/HomeBanner/HomeBanner";
-import { EmblaCarousel } from "./lib/emblaCarousel/emblaCarousel";
-import HomeBlock from "@/components/HomeBlock/HomeBlock";
+import HomeBanner from "@/app/lib/HomeBanner/HomeBanner";
+import EmblaCarousel from "./lib/EmblaCarousel/EmblaCarousel";
+import HomeBlock from "@/app/lib/HomeBlock/HomeBlock";
 import HomeBlockSecond from "@/components/HomeBlockSecond/HomeBlockSecond";
 import HomeTextBlock from "@/components/HomeTextBlock/HomeTextBlock";
 import { ButtonProductCard } from "@/components/ProductCard/ProductCard";
@@ -12,9 +12,9 @@ import RunningLine from "@/components/RunningLine/RunningLine";
 import { media } from "@/constants/media";
 import Link from "next/link";
 import Reviews from "@/components/Reviews/Reviews";
-import AboutUs from "@/components/AboutUs/AboutUs";
+import AboutUs from "@/app/lib/AboutUs/AboutUs";
 import delivery from ".//../../public/images/delivery.png";
-import HomeProductCards from "./lib/HomeProductCards";
+import HomeProductCards from "./lib/HomeProductCards/HomeProductCards";
 
 const WrapperProductCard = styled.div`
   display: flex;
