@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import imgForm from "./imgForm.png";
-import imgForm2 from "./imgForm2.png";
+import imgForm from "./assets/imgForm.png";
+import imgForm2 from "./assets/imgForm2.png";
 import {
   TextField,
   createTheme,
@@ -14,127 +13,16 @@ import OrderFormSuccess from "./OrderFormSuccess";
 import cmsAxios from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { media } from "@/constants/media";
-import { layout } from "@/constants/layout";
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: 100px;
-  background-color: #bcc0b4;
-  text-align: center;
-
-  ${media.phone} {
-    ${layout}
-  }
-`;
-
-const Div = styled.div`
-  height: 486px;
-  position: relative;
-  width: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  ${media.phone} {
-    width: auto;
-  }
-`;
-
-const Img2 = styled.img`
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
-  margin-bottom: 10px;
-
-  ${media.tablet} {
-    width: 300px;
-    height: 300px;
-  }
-
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-const FieldWrapper = styled.div`
-  width: 630px;
-
-  ${media.tablet} {
-    width: auto;
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-
-  ${media.phone} {
-    width: auto;
-  }
-`;
-
-const Img1 = styled.img`
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  box-shadow: 9px 7px 10px 0px rgba(0, 0, 0, 0.47);
-  margin-top: 10px;
-
-  ${media.tablet} {
-    width: 300px;
-    height: 300px;
-  }
-
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 36px;
-  text-align: center;
-  padding-top: 36px;
-
-  ${media.tablet} {
-    font-size: 32px;
-  }
-
-  ${media.phone} {
-    font-size: 30px;
-  }
-`;
-
-const Button = styled.div`
-  background-color: #526468;
-  color: white;
-  height: 50px;
-  font-size: 20px;
-  width: 264px;
-  margin-top: 36px;
-  text-align: center;
-  padding-top: 15px;
-  cursor: pointer;
-
-  ${media.phone} {
-    font-size: 16px;
-  }
-`;
-
-const Description = styled.div`
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 20px;
-
-  ${media.phone} {
-    font-size: 16px;
-  }
-`;
+import {
+  Button,
+  Description,
+  FieldWrapper,
+  Img1,
+  Img2,
+  Title,
+  Wrapper,
+  Div,
+} from "./styles";
 
 const customTheme = (outerTheme: Theme) =>
   createTheme({

@@ -1,108 +1,24 @@
 import cmsAxios from "@/configs/axios";
-import { button, layout } from "@/constants/layout";
-import { media } from "@/constants/media";
 import getCmsImage from "@/utils/get-cms-image";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useScroll } from "framer-motion";
 import { useState } from "react";
-import styled from "styled-components";
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+import {
+  Button,
+  Img,
+  Review,
+  Title,
+  Wrapper,
+  WrapperBlock,
+  WrapperButton,
+  WrapperTitle,
+} from "./styles";
 
-  ${layout}
-`;
+interface FormatReviewsData {
+  data: { avatar: string; name: string; text: string }[];
+}
 
-const WrapperTitle = styled.div`
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 80px;
-  margin-top: 180px;
-
-  ${media.phone} {
-    font-size: 24px;
-    margin-top: 140px;
-  }
-`;
-
-const WrapperBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  margin-bottom: 40px;
-
-  ${media.phone} {
-    width: 100%;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-
-  ${media.tablet} {
-    font-size: 20px;
-    text-align: center;
-  }
-
-  ${media.phone} {
-    font-size: 20px;
-    text-align: center;
-  }
-`;
-
-const Review = styled.div`
-  font-size: 16px;
-  text-align: center;
-`;
-
-const Img = styled.img`
-  height: 100px;
-  width: 100px;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
-
-  margin-bottom: 10px;
-`;
-
-const Button = styled.button<{ $isOpen: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  ${button};
-
-  svg {
-    margin-left: 40px;
-    transform: ${(props) =>
-      props.$isOpen ? "rotate(-90deg)" : "rotate(90deg)"};
-  }
-`;
-
-const WrapperButton = styled.div`
-  display: flex;
-  margin-top: 80px;
-  margin-bottom: 100px;
-
-  justify-content: flex-end;
-  ${layout}
-
-  ${media.tablet} {
-    margin-top: 0px;
-  }
-
-  ${media.phone} {
-    margin-top: 0px;
-  }
-`;
-
-const formatReviews = (data) => {
+const formatReviews = (data: FormatReviewsData) => {
   return data.data.map((item) => {
     return {
       icon: getCmsImage(item.avatar),

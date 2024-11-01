@@ -1,29 +1,5 @@
-import styled from "styled-components";
 import Marquee from "react-fast-marquee";
-import { media } from "@/constants/media";
-
-const WrapperText = styled.div`
-  height: 40px;
-  width: 100%;
-  margin-top: 50px;
-
-  background: #f2eae2;
-
-  ${media.tablet} {
-    display: none;
-  }
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-const Text = styled.div`
-  text-align: center;
-
-  padding-top: 10px;
-  padding-bottom: 12px;
-  padding-right: 400px;
-`;
+import { Text, WrapperText } from "./styles";
 
 const RunningLine = () => {
   return (
