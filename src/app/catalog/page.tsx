@@ -1,77 +1,18 @@
 "use client";
 
 import ProductCard from "@/components/ProductCard/ProductCard";
-import styled from "styled-components";
 import Filters from "@/components/Filters/Filters";
-import { layout } from "@/constants/layout";
 import { useQuery } from "@tanstack/react-query";
-import { media } from "@/constants/media";
 import { useSearchParams } from "next/navigation";
 import cmsAxios from "@/configs/axios";
 import getCmsImage from "@/utils/get-cms-image";
-
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
-  margin-bottom: 100px;
-  padding-top: 200px;
-
-  ${media.phone} {
-    font-size: 30px;
-    margin-bottom: 50px;
-  }
-`;
-
-const WrapperDiv = styled.div`
-  display: flex;
-
-  ${layout}
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-left: 80px;
-  padding-right: 50px;
-
-  ${media.tablet} {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  ${media.phone} {
-    padding-left: 0;
-    padding-right: 0;
-  }
-`;
-
-const WrapperFilters = styled.div`
-  display: flex;
-  width: 300px;
-  flex-direction: column;
-
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-
-
-const WrapperProductCardColumn = styled.div`
-  width: 44%;
-  padding-bottom: 50px;
-
-  ${media.tablet} {
-    width: 45%;
-  }
-
-  ${media.phone} {
-    width: 100%;
-  }
-`;
+import {
+  Title,
+  Wrapper,
+  WrapperDiv,
+  WrapperFilters,
+  WrapperProductCardColumn,
+} from "./styles";
 
 interface Item {
   id: string;
@@ -81,22 +22,14 @@ interface Item {
   params: [string];
   price: number;
   link: string;
+  week: number;
 }
 
-const data = [
-  {
-    id: 2,
-    documentId: "eqlpup9qx0b96iwwj7ly2rc8",
-    title: "Деревянный каркас",
-    slug: "derevyannyj-karkas",
-    createdAt: "2024-10-22T08:51:26.395Z",
-    updatedAt: "2024-10-22T08:51:26.395Z",
-    publishedAt: "2024-10-22T08:51:26.408Z",
-    locale: null,
-  },
-];
+interface FormatParamsData {
+  slug: string;
+}
 
-const formatParams = (data) => {
+const formatParams = (data: FormatParamsData[]) => {
   return data.map((item) => {
     return item.slug;
   });

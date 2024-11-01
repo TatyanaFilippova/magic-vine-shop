@@ -2,8 +2,17 @@ import cmsAxios from "@/configs/axios";
 import getCmsImage from "@/utils/get-cms-image";
 import { useQuery } from "@tanstack/react-query";
 
+interface HomeCardData {
+  id: string;
+  title: string;
+  description: string;
+  imgUrl: string;
+  price: string;
+  week: string;
+}
+
 const useHomeCards = () => {
-  return useQuery({
+  return useQuery<HomeCardData[]>({
     queryKey: ["HomeCards"],
     queryFn: async () => {
       const result = await cmsAxios.get(
