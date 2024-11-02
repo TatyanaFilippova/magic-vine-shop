@@ -1,102 +1,21 @@
 "use client";
 
-import styled from "styled-components";
-import icon from "../Header/icon.png";
-import iconVK from "./iconVK.png";
-import iconWhatsApp from "./iconWhatsApp.png";
-import { media } from "@/constants/media";
-import Link from "next/link";
-
-const WrapperLogoTitle = styled.div`
-  align-items: center;
-
-  display: flex;
-
-  ${media.tablet} {
-    flex-direction: column;
-  }
-
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  ${media.phone} {
-    display: none;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 24px;
-  padding-bottom: 50px;
-
-  ${media.tablet} {
-    font-size: 18px;
-  }
-`;
-
-const ImgLogo = styled.img`
-  width: 170px;
-  padding-right: 24px;
-  padding-bottom: 40px;
-`;
-
-const Text = styled(Link)`
-  font-size: 18px;
-  padding-bottom: 15px;
-  color: black;
-
-  ${media.phone} {
-    font-size: 15px;
-  }
-`;
-
-const WrapperText = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  ${media.tablet} {
-    display: none;
-  }
-`;
-
-const WrapperBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const WrapperBlockSekond = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const WrapperBlockTitle = styled.div`
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 32px;
-  margin-top: 54px;
-
-  ${media.phone} {
-    margin-top: 10px;
-  }
-`;
-
-const WrapperMain = styled.div`
-  display: flex;
-  justify-content: space-around;
-  background-color: #f2eae2;
-  padding-top: 30px;
-  padding-bottom: 30px;
-`;
-
-const ImgIcon = styled.img`
-  width: 70px;
-  padding-bottom: 10px;
-`;
+import icon from "../Header/assets/icon.png";
+import iconVK from "./assets/iconVK.png";
+import iconWhatsApp from "./assets/iconWhatsApp.png";
+import {
+  ImgIcon,
+  ImgLogo,
+  Text,
+  Title,
+  Wrapper,
+  WrapperBlock,
+  WrapperBlockSekond,
+  WrapperBlockTitle,
+  WrapperLogoTitle,
+  WrapperMain,
+  WrapperText,
+} from "./styles";
 
 const Footer = () => {
   return (
@@ -122,8 +41,12 @@ const Footer = () => {
       </WrapperBlock>
       <WrapperBlockSekond>
         <WrapperBlockTitle>социальные сети</WrapperBlockTitle>
-        <ImgIcon src={iconVK.src} />
-        <ImgIcon src={iconWhatsApp.src} />
+        <a href="https://vk.com/magic_vine_syk" target="_blank">
+          <ImgIcon src={iconVK.src} />
+        </a>
+        <a href="https://wa.me/89121992737?" target="_blank">
+          <ImgIcon src={iconWhatsApp.src} />
+        </a>
       </WrapperBlockSekond>
     </WrapperMain>
   );
