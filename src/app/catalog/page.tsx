@@ -1,7 +1,7 @@
 "use client";
 
 import ProductCard from "@/app/catalog/lib/ProductCard/ProductCard";
-import Filters from "@/components/Filters/Filters";
+import Filters from "@/app/catalog/lib/Filters/Filters";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import cmsAxios from "@/configs/axios";

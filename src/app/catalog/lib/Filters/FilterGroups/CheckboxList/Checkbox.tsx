@@ -1,4 +1,4 @@
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import CheckboxMui from "@mui/material/Checkbox";
 
 interface Checkbox {
