@@ -1,44 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import ImgClose from "./ImgClose";
-
-const Input = styled.input`
-  width: 200px;
-  border: 2px solid #869286;
-  border-radius: 8px;
-  height: 40px;
-  padding: 10px;
-  cursor: pointer;
-`;
-
-const WrapperUl = styled.ul`
-  width: 200px;
-  border: 2px solid #869286;
-  border-radius: 8px;
-`;
-
-const WrapperLi = styled.li<{ $active?: boolean }>`
-  padding: 10px;
-  cursor: pointer;
-  &:hover {
-    background: #d6dcd6;
-  }
-  ${(props) =>
-    props.$active &&
-    css`
-      background: #869286;
-    `}
-`;
-
-const Button = styled.button`
-  position: relative;
-`;
-const ButtonClose = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 8px;
-`;
+import { Button, ButtonClose, Input, WrapperLi, WrapperUl } from "./styles";
+import ImgClose from "../../ImgClose/ImgClose";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);

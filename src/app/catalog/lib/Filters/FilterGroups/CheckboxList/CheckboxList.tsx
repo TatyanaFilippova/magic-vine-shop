@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { StrictMode } from "react";
 import Checkbox from "./Checkbox";
+import { media } from "@/constants/media";
 
 const Wrapper = styled.div``;
 const Text = styled.label`
   font-size: 18px;
   display: block;
-`;
 
-const Input = styled.input`
-  margin-right: 10px;
+  ${media.phone} {
+    font-size: 16px;
+  }
 `;
 
 const list = [

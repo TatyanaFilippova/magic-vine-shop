@@ -1,7 +1,7 @@
 "use client";
 
 import ProductCard from "@/app/catalog/lib/ProductCard/ProductCard";
-import Filters from "@/components/Filters/Filters";
+import Filters from "@/app/catalog/lib/Filters/Filters";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import cmsAxios from "@/configs/axios";
@@ -12,7 +12,10 @@ import {
   WrapperDiv,
   WrapperFilters,
   WrapperProductCardColumn,
+  WrapperButtonFilters,
 } from "./styles";
+import IconFilters from "./lib/FiltersMobil/IconFilters";
+import FiltersMobil from "./lib/FiltersMobil/FiltersMobil";
 
 interface Item {
   id: string;
@@ -98,11 +101,16 @@ const CatalogCardProduct = () => {
   ));
   return (
     <div>
-      <Title>Каталог товаров</Title>
+      <WrapperButtonFilters>
+        <Title>Каталог товаров</Title>
+        <FiltersMobil />
+      </WrapperButtonFilters>
+
       <WrapperDiv>
         <WrapperFilters>
           <Filters></Filters>
         </WrapperFilters>
+
         <Wrapper>{product}</Wrapper>
       </WrapperDiv>
     </div>

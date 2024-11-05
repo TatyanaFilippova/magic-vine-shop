@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { formatFilters, Parameters } from "../Filters";
-import ButtonFrame from "../ButtonFrame";
+import { formatFilters } from "../../Filters";
+import { Parameters } from "../../styles";
+import ButtonFrame from "../../ButtonFrame/ButtonFrame";
 import cmsAxios from "@/configs/axios";
 
 const FiltersParameters = () => {
-  const { isLoading, error, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["filter-parameters"],
     queryFn: async () => {
       const result = await cmsAxios.get("/api/filter-parameters");

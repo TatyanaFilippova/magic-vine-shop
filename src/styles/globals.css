@@ -109,6 +109,10 @@ legend {
   display: block;
 }
 
+.ReactModal__Overlay {
+  z-index: 20;
+}
+
 .ReactModal__Content {
   padding: 0 !important;
 }
