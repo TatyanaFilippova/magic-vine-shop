@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Checkbox from "./Checkbox";
+import { media } from "@/constants/media";
 
 const Wrapper = styled.div``;
 const Text = styled.label`
   font-size: 18px;
   display: block;
+
+  ${media.phone} {
+    font-size: 16px;
+  }
 `;
 
 const list = [

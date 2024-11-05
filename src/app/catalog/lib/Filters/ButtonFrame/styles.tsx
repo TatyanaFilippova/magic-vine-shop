@@ -16,7 +16,7 @@ export const ButtonFrameStyled = styled.button<{ active: boolean }>`
   justify-content: space-between;
   color: ${(props) => (props.active ? "white" : "black")};
   ${media.phone} {
-    display: none;
+    font-size: 16px;
   }
 `;
 

@@ -5,20 +5,18 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  ${media.phone} {
-    display: none;
-  }
 `;
 export const Title = styled.div`
   font-size: 24px;
-`;
 
-export const WrapperParameters = styled.div`
   ${media.phone} {
-    display: none;
+    margin-top: 20px;
+    position: relative;
+    right: 20px;
   }
 `;
+
+export const WrapperParameters = styled.div``;
 
 export const Parameters = styled.div`
   font-size: 18px;
