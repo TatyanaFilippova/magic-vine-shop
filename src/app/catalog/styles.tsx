@@ -4,15 +4,16 @@ import exp from "constants";
 import styled from "styled-components";
 
 export const Title = styled.div`
-  display: flex;
-  justify-content: center;
   font-size: 50px;
+  width: 100%;
   margin-bottom: 100px;
   padding-top: 200px;
+  text-align: center;
 
   ${media.phone} {
     font-size: 30px;
     margin-bottom: 50px;
+    text-align: left;
   }
 `;
 
@@ -21,8 +22,6 @@ export const WrapperDiv = styled.div`
 
   ${layout}
 `;
-
-
 
 export const WrapperFilters = styled.div`
   display: flex;
@@ -33,8 +32,6 @@ export const WrapperFilters = styled.div`
     display: none;
   }
 `;
-
-
 
 export const WrapperButtonFilters = styled.div`
   display: flex;

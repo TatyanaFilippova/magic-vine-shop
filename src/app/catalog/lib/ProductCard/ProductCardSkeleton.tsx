@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Button, Card, Description, ImgCard, Title } from "./styles";
+import { ImgCardSkeleton, Card, Description, ImgCard, Title } from "./styles";
 import Skeleton from "react-loading-skeleton";
 
 interface ProductCardProps {
@@ -9,7 +9,7 @@ interface ProductCardProps {
 const ProductCardSkeleton: FC<ProductCardProps> = ({ hesLink }) => {
   return (
     <Card>
-      <Skeleton height={250} width="100%" />
+      <ImgCardSkeleton />
       <Title>
         <Skeleton height={24} width="60%" />
       </Title>
