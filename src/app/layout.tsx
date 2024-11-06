@@ -5,6 +5,7 @@ import StyledComponentsRegistry from "./lib/registry";
 import Providers from "./lib/providers";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const inter = LocalFont({
   src: [

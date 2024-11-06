@@ -50,6 +50,9 @@ export const DeliveryBlock = styled.div`
   margin-top: 200px;
 
   ${layout}
+  ${media.phone} {
+    margin-top: 80px;
+  }
 `;
 export const TitleDelivery = styled.div`
   font-size: 40px;
@@ -57,5 +60,6 @@ export const TitleDelivery = styled.div`
 
   ${media.phone} {
     font-size: 24px;
+    margin-bottom: 50px;
   }
 `;

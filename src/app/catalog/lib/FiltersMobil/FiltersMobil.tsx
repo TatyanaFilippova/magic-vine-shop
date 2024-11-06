@@ -15,6 +15,7 @@ const ButtonClose = styled.button`
 
 const Wrapper = styled.div`
   margin-left: 30px;
+  margin-bottom: 30px;
 `;
 
 const customStyles = {

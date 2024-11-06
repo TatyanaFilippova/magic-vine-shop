@@ -50,7 +50,7 @@ const Reviews = ({ id }: { id: string }) => {
               ? `${item.text.slice(0, 100)}...`
               : item.text;
           return (
-            <WrapperBlock>
+            <WrapperBlock key={item.icon}>
               <Img src={item.icon} />
               <Title>{item.name}</Title>
               <Review>{text}</Review>

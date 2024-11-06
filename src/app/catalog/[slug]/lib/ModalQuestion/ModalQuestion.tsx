@@ -12,6 +12,9 @@ import {
   Title,
   Wrapper,
 } from "./styles";
+import { useParams } from "next/navigation";
+import useProductDetailApi from "@/api/getProductDetail";
+import cmsAxios from "@/configs/axios";
 
 const customStyles = {
   content: {
@@ -26,18 +29,22 @@ const customStyles = {
 
 Modal.setAppElement("#modal");
 const ModalQuestion = () => {
+  const [name, setName] = useState("");
+  const [question, setQuestion] = useState("");
+  const [email, setEmail] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
-
+  const params = useParams<{ slug: string }>();
+  const { data } = useProductDetailApi(params.slug);
   const submit = async () => {
-    // await cmsAxios.post("/api/orders", {
-    //   data: {
-    //    number: number,
-    //    name: name,
-    //    email: email,
-    //   product: product?.id,
-    //  },
-    //});
+    await cmsAxios.post("/api/questions", {
+      data: {
+        question: question,
+        name: name,
+        email: email,
+        product: data?.id?.toString(),
+      },
+    });
     setSuccess(true);
   };
 
@@ -64,15 +71,15 @@ const ModalQuestion = () => {
             <Title>Задать вопрос</Title>
             <form>
               <Text>Ваше имя:</Text>
-              <InputStyled />
+              <InputStyled onChange={(e) => setName(e.target.value)} />
             </form>
             <form>
               <Text>Электронная почта @email:</Text>
-              <InputStyled />
+              <InputStyled onChange={(e) => setEmail(e.target.value)} />
             </form>
             <form>
               <Text>Ваш вопрос:</Text>
-              <Input />
+              <Input onChange={(e) => setQuestion(e.target.value)} />
             </form>
             <Div>
               <ButtonStyled onClick={() => submit()}>
