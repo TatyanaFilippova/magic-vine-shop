@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 interface Product {
   summary: string;
+  id: string;
   title: string;
   tag: string;
   banner: {
@@ -18,8 +19,8 @@ interface Product {
   }[];
   priceForm: string;
 }
-const useProductDetailApi = (slug) => {
-  return useQuery({
+const useProductDetailApi = (slug: string) => {
+  return useQuery<Product>({
     queryKey: ["productDetail", slug],
     queryFn: async () => {
       const result = await cmsAxios.get(

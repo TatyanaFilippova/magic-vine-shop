@@ -86,14 +86,14 @@ const OrderForm = ({ id }: { id: string }) => {
   const outerTheme = useTheme();
 
   const submit = async () => {
-    // await cmsAxios.post("/api/orders", {
-    //   data: {
-    //    number: number,
-    //    name: name,
-    //    email: email,
-    //   product: product?.id,
-    //  },
-    //});
+    await cmsAxios.post("/api/orders", {
+      data: {
+        number: number,
+        name: name,
+        email: email,
+        product: product?.id,
+      },
+    });
     setSuccess(true);
   };
 
