@@ -1,5 +1,6 @@
 import { media } from "@/constants/media";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton";
 
 export const Card = styled.div`
   display: flex;
@@ -25,13 +26,22 @@ export const ImgCard = styled.img`
   }
 `;
 
+export const ImgCardSkeleton = styled(Skeleton)`
+  width: 100%;
+  height: 380px;
+
+  ${media.tablet} {
+    height: 250px;
+  }
+`;
+
 export const Title = styled.div`
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 40px;
+  min-height: 40px;
 
   ${media.tablet} {
     font-size: 20px;
@@ -46,7 +56,7 @@ export const Title = styled.div`
 export const Description = styled.div`
   font-size: 20px;
   text-align: center;
-  height: 60px;
+  min-height: 60px;
 
   ${media.tablet} {
     font-size: 18px;
@@ -54,7 +64,7 @@ export const Description = styled.div`
 
   ${media.phone} {
     font-size: 15px;
-    height: 20px;
+    min-height: 20px;
     margin-bottom: 10px;
   }
 `;
