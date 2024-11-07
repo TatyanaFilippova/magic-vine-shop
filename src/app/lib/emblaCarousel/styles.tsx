@@ -1,4 +1,5 @@
 import { media } from "@/constants/media";
+import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 
 export const Embla = styled.div`
@@ -36,6 +37,18 @@ export const Img = styled.img`
   height: 520px;
   object-fit: cover;
   width: 100%;
+
+  ${media.tablet} {
+    height: 300px;
+  }
+
+  ${media.phone} {
+    height: 250px;
+  }
+`;
+
+export const ImgSkeleton = styled(Skeleton)`
+  height: 520px;
 
   ${media.tablet} {
     height: 300px;

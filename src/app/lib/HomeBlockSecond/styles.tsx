@@ -1,5 +1,6 @@
 import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
+import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -47,6 +48,20 @@ export const Img = styled.img`
   }
 `;
 
+export const ImgSkeleton = styled(Skeleton)`
+  width: 585px;
+  height: 585px;
+
+  ${media.tablet} {
+    width: 355px;
+    height: 355px;
+  }
+
+  ${media.phone} {
+    width: 100%;
+  }
+`;
+
 export const WrapperText = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,5 +69,22 @@ export const WrapperText = styled.div`
 
   ${media.phone} {
     padding-top: 0;
+  }
+`;
+
+export const TextSkeleton = styled(Skeleton)`
+  height: 36px;
+  width: 680px;
+
+  padding-top: 30px;
+
+  ${media.tablet} {
+    height: 78px;
+    width: 345px;
+  }
+
+  ${media.phone} {
+    font-size: 15px;
+    width: auto;
   }
 `;

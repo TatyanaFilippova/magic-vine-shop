@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ImgCardSkeleton, Card, Description, ImgCard, Title } from "./styles";
+import { ImgCardSkeleton, Card, Description, Title } from "./styles";
 import Skeleton from "react-loading-skeleton";
 
 interface ProductCardProps {

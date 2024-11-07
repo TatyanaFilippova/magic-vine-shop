@@ -2,7 +2,6 @@ import cmsAxios from "@/configs/axios";
 import getCmsImage from "@/utils/get-cms-image";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
-import Skeleton from "react-loading-skeleton";
 import ProductCard from "../ProductCard/ProductCard";
 import { WrapperProductCardColumn, Wrapper } from "./styles";
 import ProductCardSkeleton from "../ProductCard/ProductCardSkeleton";
