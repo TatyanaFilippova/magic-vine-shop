@@ -24,6 +24,9 @@ export const ImgCard = styled.img`
   ${media.tablet} {
     height: 250px;
   }
+  ${media.phone} {
+    height: 320px;
+  }
 `;
 
 export const ImgCardSkeleton = styled(Skeleton)`
@@ -32,6 +35,10 @@ export const ImgCardSkeleton = styled(Skeleton)`
 
   ${media.tablet} {
     height: 250px;
+  }
+
+  ${media.phone} {
+    height: 320px;
   }
 `;
 

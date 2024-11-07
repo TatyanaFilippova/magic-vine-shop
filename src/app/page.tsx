@@ -18,8 +18,37 @@ import {
   TitleDelivery,
   WrapperProductCard,
 } from "./styles";
+import cmsAxios from "@/configs/axios";
+import { useQuery } from "@tanstack/react-query";
+import HomeBannerSkeleton from "./lib/HomeBanner/HomeBannerSkeleton";
+import RunningLineSkeleton from "./lib/RunningLine/RunningLineSkeleton";
+import EmblaCarouselSkeleton from "./lib/EmblaCarousel/EmblaCarouselSkeleton";
+import HomeBlockSkeleton from "./lib/HomeBlock/HomeBlockSkeleton";
+import HomeBlockSecondSkeleton from "./lib/HomeBlockSecond/HomeBlockSecondSkeleton";
+import HomeTextBlockSkeleton from "./lib/HomeTextBlock/HomeTextBlockSkeleton";
+import HomeProductCardsSkeleton from "./lib/HomeProductCards/HomeProductCardsSkeleton";
 
 export default function Home() {
+  const { isLoading } = useQuery({
+    queryKey: ["posts"],
+    queryFn: async () => {
+      const result = await cmsAxios.get("/api/products?populate=*");
+
+      return result.data;
+    },
+  });
+  if (isLoading)
+    return (
+      <div>
+        <HomeBannerSkeleton hesLink />
+        <RunningLineSkeleton />
+        <EmblaCarouselSkeleton />
+        <HomeBlockSkeleton />
+        <HomeBlockSecondSkeleton />
+        <HomeTextBlockSkeleton />
+        <HomeProductCardsSkeleton />
+      </div>
+    ); // Обработка загрузки
   return (
     <div>
       <HomeBanner />

@@ -1,5 +1,6 @@
 import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
+import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -33,5 +34,22 @@ export const Text = styled.div`
   ${media.phone} {
     font-size: 16px;
     width: auto;
+  }
+`;
+
+export const TextSkeleton = styled(Skeleton)`
+  height: 147px;
+  width: 800px;
+  padding-top: 30px;
+
+  ${media.tablet} {
+    height: 108px;
+    width: 600px;
+  }
+
+  ${media.phone} {
+    width: 350px;
+    height: 70px;
+    margin-top: 30px;
   }
 `;
