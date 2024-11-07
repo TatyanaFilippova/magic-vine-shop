@@ -1,5 +1,6 @@
 import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
+import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -22,6 +23,23 @@ export const Title = styled.div`
   }
 `;
 
+export const TitleSkeleton = styled(Skeleton)`
+  height: 58px;
+  width: 310px;
+  padding-bottom: 10px;
+
+  ${media.tablet} {
+    height: 48px;
+    width: 316px;
+  }
+  ${media.phone} {
+    height: 46px;
+    width: 222px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+`;
+
 export const Description = styled.div`
   font-size: 18px;
   width: 600px;
@@ -40,6 +58,21 @@ export const Description = styled.div`
   }
 `;
 
+export const DescriptionSkeleton = styled(Skeleton)`
+  width: 600px;
+  height: 125px;
+
+  ${media.tablet} {
+    width: 316px;
+    height: 200px;
+  }
+
+  ${media.phone} {
+    width: 300px;
+    height: 126px;
+    text-align: center;
+  }
+`;
 export const ImgProduct = styled.div<{ $img: string }>`
   background: ${(props) => `url(${props.$img})`};
   background-repeat: no-repeat;
@@ -50,6 +83,21 @@ export const ImgProduct = styled.div<{ $img: string }>`
   ${media.tablet} {
     height: 500px;
     width: 100%;
+  }
+  ${media.phone} {
+    display: none;
+  }
+`;
+
+export const ImgProductSkeleton = styled(Skeleton)`
+  background-repeat: no-repeat;
+  height: 750px;
+  width: 723px;
+  background-size: cover;
+
+  ${media.tablet} {
+    height: 500px;
+    width: 354px;
   }
   ${media.phone} {
     display: none;
@@ -96,6 +144,17 @@ export const Hashtags = styled.div`
 
   ${media.tablet} {
     font-size: 12px;
+  }
+`;
+
+export const HashtagsSkeleton = styled(Skeleton)`
+  margin-right: 10px;
+  height: 19px;
+  width: 254px;
+
+  ${media.tablet} {
+    width: 203px;
+    height: 14px;
   }
 `;
 export const Button = styled.div`

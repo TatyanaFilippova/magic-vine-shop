@@ -9,22 +9,46 @@ import { useParams } from "next/navigation";
 import {
   Button,
   Description,
+  DescriptionSkeleton,
   DivTitle,
   Hashtags,
+  HashtagsSkeleton,
   ImgProduct,
+  ImgProductSkeleton,
   Shell,
   Title,
+  TitleSkeleton,
   Wrapper,
   WrapperHashtags,
   WrapperText,
 } from "./styles";
 import getCmsImage from "@/utils/get-cms-image";
 import useProductDetailApi from "@/api/getProductDetail";
+import DescriptionBlockSkeleton from "./lib/DescriptionBlock/DescriptionBlockSkeleton";
+import { EmblaCarouselProductSkeleton } from "./lib/EmblaCarouselProduct/EmblaCarouselProductSkeleton";
 
 const Goods = () => {
   const params = useParams<{ slug: string }>();
   const { data } = useProductDetailApi(params.slug);
-  if (!data) return null;
+  if (!data)
+    return (
+      <>
+        <Wrapper>
+          {
+            <WrapperText>
+              <TitleSkeleton />
+              <WrapperHashtags>
+                <HashtagsSkeleton />
+              </WrapperHashtags>
+              <DescriptionSkeleton />
+            </WrapperText>
+          }
+          <ImgProductSkeleton />
+        </Wrapper>
+        <DescriptionBlockSkeleton />
+        <EmblaCarouselProductSkeleton />
+      </>
+    );
   return (
     <>
       <Wrapper>
