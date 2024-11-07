@@ -1,5 +1,6 @@
 import { media } from "@/constants/media";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -34,5 +35,15 @@ export const WrapperTitle = styled.div`
 
   ${media.phone} {
     display: none;
+  }
+`;
+
+export const ButtonSkeleton = styled(Skeleton)`
+  width: 240px;
+  height: 44px;
+
+  ${media.phone} {
+    height: 44px;
+    width: 328px;
   }
 `;
