@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import OrderFormSuccess from "./OrderFormSuccess";
-import cmsAxios from "@/configs/axios";
+import cmsAxios, {serverAxios} from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import {
@@ -86,7 +86,7 @@ const OrderForm = ({ id }: { id: string }) => {
   const outerTheme = useTheme();
 
   const submit = async () => {
-    await cmsAxios.post("/api/orders", {
+    await serverAxios.post("/add-order", {
       data: {
         number: number,
         name: name,
