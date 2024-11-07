@@ -40,7 +40,12 @@ export const WrapperProductCardColumn = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 980px;
+  width: 90%;
+  max-width: 9999999px;
+
+  ${media.phone} {
+    width: 900px;
+  }
 `;
 
 export const DeliveryBlock = styled.div`
@@ -52,6 +57,7 @@ export const DeliveryBlock = styled.div`
   ${layout}
   ${media.phone} {
     margin-top: 80px;
+    padding: 0;
   }
 `;
 export const TitleDelivery = styled.div`
@@ -61,5 +67,17 @@ export const TitleDelivery = styled.div`
   ${media.phone} {
     font-size: 24px;
     margin-bottom: 50px;
+  }
+`;
+
+export const ImgWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+
+  ${media.phone} {
+    display: block;
   }
 `;
