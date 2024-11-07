@@ -14,7 +14,7 @@ import {
 } from "./styles";
 import { useParams } from "next/navigation";
 import useProductDetailApi from "@/api/getProductDetail";
-import cmsAxios from "@/configs/axios";
+import {serverAxios} from "@/configs/axios";
 
 const customStyles = {
   content: {
@@ -37,7 +37,7 @@ const ModalQuestion = () => {
   const params = useParams<{ slug: string }>();
   const { data } = useProductDetailApi(params.slug);
   const submit = async () => {
-    await cmsAxios.post("/api/questions", {
+    await serverAxios.post("/add-question", {
       data: {
         question: question,
         name: name,
