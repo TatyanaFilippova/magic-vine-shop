@@ -15,6 +15,7 @@ import HomeProductCards from "./lib/HomeProductCards/HomeProductCards";
 import {
   DeliveryBlock,
   Img,
+  ImgWrapper,
   TitleDelivery,
   WrapperProductCard,
 } from "./styles";
@@ -73,7 +74,9 @@ export default function Home() {
       <AboutUs />
       <DeliveryBlock>
         <TitleDelivery id="delivery">Доставка и оплата</TitleDelivery>
-        <Img src={delivery.src} />
+        <ImgWrapper>
+          <Img src={delivery.src} />
+        </ImgWrapper>
       </DeliveryBlock>
       <Reviews id="reviews" />
     </div>

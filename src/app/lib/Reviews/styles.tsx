@@ -18,7 +18,7 @@ export const WrapperTitle = styled.div`
 
   ${media.phone} {
     font-size: 24px;
-    margin-top: 80px;
+    margin-top: 30px;
     margin-bottom: 40px;
   }
 `;
