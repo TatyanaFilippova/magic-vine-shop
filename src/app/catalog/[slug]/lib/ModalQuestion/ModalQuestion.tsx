@@ -36,13 +36,14 @@ const ModalQuestion = () => {
   const [isSuccess, setSuccess] = useState(false);
   const params = useParams<{ slug: string }>();
   const { data } = useProductDetailApi(params.slug);
+
   const submit = async () => {
     await serverAxios.post("/add-question", {
       data: {
         question: question,
         name: name,
         email: email,
-        product: data?.id?.toString(),
+        product: data.documentId,
       },
     });
     setSuccess(true);

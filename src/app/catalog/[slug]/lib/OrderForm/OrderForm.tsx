@@ -10,8 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import OrderFormSuccess from "./OrderFormSuccess";
-import cmsAxios, {serverAxios} from "@/configs/axios";
-import { useQuery } from "@tanstack/react-query";
+import {serverAxios} from "@/configs/axios";
 import { useParams } from "next/navigation";
 import {
   Button,
@@ -23,6 +22,7 @@ import {
   Wrapper,
   Div,
 } from "./styles";
+import useProductDetailApi from "@/api/getProductDetail";
 
 const customTheme = (outerTheme: Theme) =>
   createTheme({
@@ -64,18 +64,7 @@ const customTheme = (outerTheme: Theme) =>
 const OrderForm = ({ id }: { id: string }) => {
   const params = useParams<{ slug: string }>();
 
-  const { data } = useQuery({
-    queryKey: ["productDetail", params.slug],
-    queryFn: async () => {
-      const result = await cmsAxios.get(
-        `/api/products?populate=*&filters[slug][$eq]=${params.slug}`
-      );
-
-      return result.data;
-    },
-  });
-
-  const product = data?.data?.[0];
+  const { data } = useProductDetailApi(params.slug)
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -91,7 +80,7 @@ const OrderForm = ({ id }: { id: string }) => {
         number: number,
         name: name,
         email: email,
-        product: product?.id,
+        product: data.documentId,
       },
     });
     setSuccess(true);

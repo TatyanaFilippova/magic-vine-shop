@@ -2,6 +2,7 @@ import cmsAxios from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 
 interface Product {
+  documentId: string;
   summary: string;
   id: string;
   title: string;
