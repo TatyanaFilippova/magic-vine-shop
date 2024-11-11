@@ -7,8 +7,8 @@ export async function POST(request: NextRequest) {
     try {
         const result = await cmsBearerAxios.post('/api/orders/', data)
         return NextResponse.json(result.data);
-    } catch (e) {
-        return NextResponse.error()
+    } catch (error: any) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
 }

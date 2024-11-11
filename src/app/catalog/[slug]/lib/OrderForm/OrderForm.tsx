@@ -10,8 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import OrderFormSuccess from "./OrderFormSuccess";
-import cmsAxios, { serverAxios } from "@/configs/axios";
-import { useQuery } from "@tanstack/react-query";
+import { serverAxios } from "@/configs/axios";
 import { useParams } from "next/navigation";
 import {
   Button,
@@ -73,7 +72,6 @@ const OrderForm = ({ id }: { id: string }) => {
   } = useForm();
 
   const { data } = useProductDetailApi(params.slug);
-
   const [isSuccess, setSuccess] = useState(false);
 
   const outerTheme = useTheme();
@@ -156,7 +154,6 @@ const OrderForm = ({ id }: { id: string }) => {
               }}
               {...register("number", {
                 required: true,
-
                 pattern: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/i,
               })}
             />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { useForm } from "react-hook-form";
+
 import ModalQuestionSuccess from "./ModalQuestionSuccess";
 import {
   Button,
@@ -15,6 +15,7 @@ import {
 import { useParams } from "next/navigation";
 import useProductDetailApi from "@/api/getProductDetail";
 import { serverAxios } from "@/configs/axios";
+import { useForm } from "react-hook-form";
 
 const customStyles = {
   content: {
@@ -38,13 +39,14 @@ const ModalQuestion = () => {
   const [isSuccess, setSuccess] = useState(false);
   const params = useParams<{ slug: string }>();
   const { data } = useProductDetailApi(params.slug);
-  const submit = async (data: any) => {
+
+  const submit = async (values: any) => {
     await serverAxios.post("/add-question", {
       data: {
-        question: data.question,
-        name: data.name,
-        email: data.email,
-        product: data?.id?.toString(),
+        question: values.question,
+        name: values.name,
+        email: values.email,
+        product: data?.documentId,
       },
     });
     setSuccess(true);
