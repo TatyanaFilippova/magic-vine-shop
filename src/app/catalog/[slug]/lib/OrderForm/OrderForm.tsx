@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import OrderFormSuccess from "./OrderFormSuccess";
-import cmsAxios, { serverAxios } from "@/configs/axios";
+import { serverAxios } from "@/configs/axios";
 import { useParams } from "next/navigation";
 import {
   Button,
@@ -70,6 +70,7 @@ const OrderForm = ({ id }: { id: string }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const { data } = useProductDetailApi(params.slug);
   const [isSuccess, setSuccess] = useState(false);
 
@@ -86,7 +87,7 @@ const OrderForm = ({ id }: { id: string }) => {
     });
     setSuccess(true);
   };
-  console.log(errors);
+
   if (isSuccess) {
     return <OrderFormSuccess />;
   }
@@ -120,7 +121,7 @@ const OrderForm = ({ id }: { id: string }) => {
               }}
               {...register("name", {
                 required: true,
-                pattern: /^[A-Za-zА-Яа-я ]+$/i,
+                pattern: /^[A-Za-zА-Яа-яё ]+$/i,
               })}
             />
             {errors.name?.type === "required" && (

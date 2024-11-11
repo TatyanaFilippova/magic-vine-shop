@@ -6,12 +6,12 @@ const HomeBlock = () => {
   return (
     <Wrapper>
       <WrapperText>
-        <Fade delay={900}>
+        <Fade delay={100}>
           <Text>
             Откройте для себя прекрасные плетеные корзинки из бумажной лозы!
           </Text>
         </Fade>
-        <Fade delay={1000}>
+        <Fade delay={100}>
           <Text>Это идеальное сочетание стиля и практичности.</Text>
         </Fade>
       </WrapperText>

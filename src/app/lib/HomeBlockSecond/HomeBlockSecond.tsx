@@ -8,13 +8,13 @@ const HomeBlockSecond = () => {
       <Img src={imgHomeBlockSecond.src}></Img>
 
       <WrapperText>
-        <Fade delay={900}>
+        <Fade delay={100}>
           <Text>
             Эко-дружественные и легкие, наши корзинки не только украсят ваш
             интерьер, но и помогут организовать пространство.
           </Text>
         </Fade>
-        <Fade delay={1000}>
+        <Fade delay={100}>
           <Text>
             Плетение из бумаги – это не только искусство, но и забота о природе!
           </Text>

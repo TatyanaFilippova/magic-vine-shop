@@ -1,3 +1,4 @@
+"use client";
 import Dropdown from "./FilterGroups/SelectedOption/SelectedOption";
 import CheckboxList from "./FilterGroups/CheckboxList/CheckboxList";
 import { Parameters, Title, Wrapper, WrapperParameters } from "./styles";

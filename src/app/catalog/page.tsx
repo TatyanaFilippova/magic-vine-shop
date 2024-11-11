@@ -1,33 +1,12 @@
-"use client";
+import { Metadata } from "next";
+import CatalogPage from "./lib";
 
-import Filters from "@/app/catalog/lib/Filters/Filters";
-
-import {
-  Title,
-  WrapperDiv,
-  WrapperFilters,
-  WrapperButtonFilters,
-} from "./styles";
-import FiltersMobil from "./lib/FiltersMobil/FiltersMobil";
-import CardList from "./lib/CardList";
-import {Suspense} from "react";
+export const metadata: Metadata = {
+  title: "Каталог изделий из бумажной лозы ручной работы",
+};
 
 const CatalogCardProduct = () => {
-  return (
-      <Suspense fallback={<div>Loading...</div>}>
-          <WrapperButtonFilters>
-            <Title>Каталог товаров</Title>
-            <FiltersMobil />
-          </WrapperButtonFilters>
-
-          <WrapperDiv>
-            <WrapperFilters>
-              <Filters />
-            </WrapperFilters>
-            <CardList />
-          </WrapperDiv>
-      </Suspense>
-  );
+  return <CatalogPage />;
 };
 
 export default CatalogCardProduct;
