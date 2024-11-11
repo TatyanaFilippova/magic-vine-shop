@@ -2,7 +2,7 @@ import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -113,7 +113,7 @@ export const TitleSuccess = styled.div`
   }
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   background-color: #526468;
   color: white;
   height: 50px;
