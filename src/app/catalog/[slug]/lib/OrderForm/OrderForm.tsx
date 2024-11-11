@@ -22,6 +22,7 @@ import {
   Title,
   Wrapper,
   Div,
+  DivImg,
 } from "./styles";
 import { useForm } from "react-hook-form";
 
@@ -104,10 +105,10 @@ const OrderForm = ({ id }: { id: string }) => {
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
       <Wrapper onSubmit={handleSubmit(submit)}>
-        <Div>
+        <DivImg>
           <Img1 src={imgForm.src} />
           <Img2 src={imgForm2.src} />
-        </Div>
+        </DivImg>
         <Div>
           <Title id={id}>Форма заказа</Title>
           <Description>Введите ваши данные</Description>
@@ -118,12 +119,14 @@ const OrderForm = ({ id }: { id: string }) => {
               label="ФИО"
               variant="outlined"
               placeholder="Введите ваше ФИО"
+              autoComplete="off"
               sx={{
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#FFFFFF",
                   height: "50px",
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: "8px",
+                  minWidth: "100%",
                 },
               }}
               {...register("name", {
@@ -132,10 +135,14 @@ const OrderForm = ({ id }: { id: string }) => {
               })}
             />
             {errors.name?.type === "required" && (
-              <p role="alert">Введите ФИО</p>
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите ФИО
+              </p>
             )}
             {errors.name?.type === "pattern" && (
-              <p role="alert">Введите корректное ФИО</p>
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите корректное ФИО
+              </p>
             )}
 
             <TextField
@@ -145,12 +152,14 @@ const OrderForm = ({ id }: { id: string }) => {
               label="Номер телефона"
               variant="outlined"
               placeholder="Введите ваш номер телефона"
+              autoComplete="off"
               sx={{
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#FFFFFF",
                   height: "50px",
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: "8px",
+                  minWidth: "100%",
                 },
               }}
               {...register("number", {
@@ -160,10 +169,14 @@ const OrderForm = ({ id }: { id: string }) => {
               })}
             />
             {errors.number?.type === "required" && (
-              <p role="alert">Введите номер телефона</p>
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите номер телефона
+              </p>
             )}
             {errors.number?.type === "pattern" && (
-              <p role="alert">Введите корректный номер телефона</p>
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите корректный номер телефона
+              </p>
             )}
 
             <TextField
@@ -172,12 +185,14 @@ const OrderForm = ({ id }: { id: string }) => {
               label="Почта email"
               variant="outlined"
               placeholder="Введите ваш email"
+              autoComplete="off"
               sx={{
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#FFFFFF",
                   height: "50px",
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: "8px",
+                  minWidth: "100%",
                 },
               }}
               {...register("email", {
@@ -185,7 +200,9 @@ const OrderForm = ({ id }: { id: string }) => {
               })}
             />
             {errors.email?.type === "required" && (
-              <p role="alert">Введите ваш email</p>
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите ваш email
+              </p>
             )}
           </FieldWrapper>
 

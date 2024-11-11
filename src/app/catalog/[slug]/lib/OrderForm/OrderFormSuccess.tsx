@@ -8,16 +8,17 @@ import {
   TitleSuccess,
   Wrapper,
   Text,
+  DivImg,
 } from "./styles";
 
 const OrderFormSuccess = () => {
   return (
     <>
       <Wrapper>
-        <Div>
+        <DivImg>
           <Img1 src={imgForm.src} />
           <Img2 src={imgForm2.src} />
-        </Div>
+        </DivImg>
         <FieldWrapperSuccess>
           <TitleSuccess>Спасибо за ваш заказ! </TitleSuccess>
           <Text>

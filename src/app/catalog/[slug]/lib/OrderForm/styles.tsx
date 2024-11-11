@@ -9,10 +9,16 @@ export const Wrapper = styled.form`
   margin-bottom: 100px;
   background-color: #bcc0b4;
   text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  ${media.phone} {
+    justify-content: center;
+  }
 `;
 
 export const Div = styled.div`
-  height: 486px;
+  height: 490px;
   position: relative;
   width: 700px;
   display: flex;
@@ -20,8 +26,21 @@ export const Div = styled.div`
   align-items: center;
 
   ${media.phone} {
-    width: auto;
-    height: 420px;
+    height: auto;
+    width: 100%;
+  }
+`;
+
+export const DivImg = styled.div`
+  height: 490px;
+  position: relative;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${media.phone} {
+    display: none;
   }
 `;
 
@@ -54,7 +73,7 @@ export const FieldWrapper = styled.div`
   }
 
   ${media.phone} {
-    width: auto;
+    width: 100%;
   }
 `;
 
@@ -110,6 +129,7 @@ export const TitleSuccess = styled.div`
 
   ${media.phone} {
     font-size: 30px;
+    padding-top: 80px;
   }
 `;
 
@@ -120,9 +140,10 @@ export const Button = styled.button`
   font-size: 20px;
   width: 264px;
   margin-top: 36px;
-  text-align: center;
   padding-top: 15px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 
   ${media.phone} {
     font-size: 16px;
@@ -148,5 +169,6 @@ export const Text = styled.div`
 
   ${media.phone} {
     font-size: 16px;
+    padding-bottom: 80px;
   }
 `;
