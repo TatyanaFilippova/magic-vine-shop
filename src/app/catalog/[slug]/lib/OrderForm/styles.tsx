@@ -9,10 +9,6 @@ export const Wrapper = styled.div`
   margin-bottom: 100px;
   background-color: #bcc0b4;
   text-align: center;
-
-  ${media.phone} {
-    ${layout}
-  }
 `;
 
 export const Div = styled.div`
@@ -25,6 +21,7 @@ export const Div = styled.div`
 
   ${media.phone} {
     width: auto;
+    height: 420px;
   }
 `;
 
@@ -102,6 +99,7 @@ export const Title = styled.div`
 
   ${media.phone} {
     font-size: 30px;
+    padding-top: 26px;
   }
 `;
 
@@ -128,6 +126,7 @@ export const Button = styled.div`
 
   ${media.phone} {
     font-size: 16px;
+    margin-top: 26px;
   }
 `;
 
@@ -138,6 +137,7 @@ export const Description = styled.div`
 
   ${media.phone} {
     font-size: 16px;
+    margin-bottom: 0;
   }
 `;
 
