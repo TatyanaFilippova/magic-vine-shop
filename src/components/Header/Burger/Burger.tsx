@@ -14,6 +14,7 @@ import iconVK from "../../Footer/assets/iconVK.png";
 import iconWhatsApp from "../../Footer/assets/iconWhatsApp.png";
 import IconClose from "../IconClose";
 import IconBurger from "./IconBurger";
+import { motion } from "framer-motion";
 
 const customStyles = {
   content: {
@@ -21,11 +22,10 @@ const customStyles = {
     left: "0",
     right: "0",
     bottom: "0",
-   
   },
 };
 
- Modal.setAppElement("#modal");
+Modal.setAppElement("#modal");
 
 const Burger = () => {
   const [modalIsOpen, setIsOpen] = useState(false);

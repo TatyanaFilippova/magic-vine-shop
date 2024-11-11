@@ -17,7 +17,6 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
     z-index: 10;
-
   }
 `;
 
@@ -26,6 +25,7 @@ export const TextBurger = styled(Link)`
   margin-top: 50px;
   color: black;
   margin-left: 20px;
+  margin-right: 20px;
 `;
 
 export const Wrapper = styled.div`
