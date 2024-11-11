@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import OrderFormSuccess from "./OrderFormSuccess";
-import { serverAxios } from "@/configs/axios";
+import cmsAxios, { serverAxios } from "@/configs/axios";
 import { useParams } from "next/navigation";
 import {
   Button,
@@ -24,6 +24,7 @@ import {
   DivImg,
 } from "./styles";
 import { useForm } from "react-hook-form";
+import useProductDetailApi from "@/api/getProductDetail";
 
 const customTheme = (outerTheme: Theme) =>
   createTheme({
@@ -69,29 +70,18 @@ const OrderForm = ({ id }: { id: string }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { data } = useQuery({
-    queryKey: ["productDetail", params.slug],
-    queryFn: async () => {
-      const result = await cmsAxios.get(
-        `/api/products?populate=*&filters[slug][$eq]=${params.slug}`
-      );
-
-      return result.data;
-    },
-  });
-
-  const product = data?.data?.[0];
+  const { data } = useProductDetailApi(params.slug);
   const [isSuccess, setSuccess] = useState(false);
 
   const outerTheme = useTheme();
 
-  const submit = async (data: any) => {
+  const submit = async (values: any) => {
     await serverAxios.post("/add-order", {
       data: {
-        number: data.number,
-        name: data.name,
-        email: data.email,
-        product: product?.id,
+        number: values.number,
+        name: values.name,
+        email: values.email,
+        product: data?.id,
       },
     });
     setSuccess(true);
@@ -163,7 +153,6 @@ const OrderForm = ({ id }: { id: string }) => {
               }}
               {...register("number", {
                 required: true,
-
                 pattern: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/i,
               })}
             />
