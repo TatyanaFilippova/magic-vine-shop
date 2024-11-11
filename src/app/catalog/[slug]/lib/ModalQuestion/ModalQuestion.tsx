@@ -43,7 +43,7 @@ const ModalQuestion = () => {
         question: question,
         name: name,
         email: email,
-        product: data.documentId,
+        product: data?.documentId,
       },
     });
     setSuccess(true);

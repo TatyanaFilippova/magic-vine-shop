@@ -58,7 +58,7 @@ const CheckboxList = () => {
     <Wrapper>
       {list.map((item) => {
         return (
-          <Text>
+          <Text key={item.value}>
             <Checkbox
               checked={active === item.value}
               onClick={() => {

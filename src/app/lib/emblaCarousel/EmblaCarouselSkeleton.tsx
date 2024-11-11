@@ -5,7 +5,6 @@ import img1 from "./assets/img 1.jpg";
 import img2 from "./assets/img 2.png";
 
 import { Embla, Embla__container, Embla__slide, ImgSkeleton } from "./styles";
-import Skeleton from "react-loading-skeleton";
 
 const img = [img1.src, img2.src];
 
