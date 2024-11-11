@@ -78,7 +78,7 @@ const ModalQuestion = () => {
               <InputStyled
                 {...register("name", {
                   required: true,
-                  pattern: /^[A-Za-zА-Яа-я ]+$/i,
+                  pattern: /^[A-Za-zА-Яа-яё ]+$/i,
                 })}
               />
               {errors.name?.type === "required" && (

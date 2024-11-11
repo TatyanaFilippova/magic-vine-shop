@@ -82,7 +82,7 @@ const OrderForm = ({ id }: { id: string }) => {
         number: values.number,
         name: values.name,
         email: values.email,
-        product: data?.id,
+        product: data?.documentId,
       },
     });
     setSuccess(true);
