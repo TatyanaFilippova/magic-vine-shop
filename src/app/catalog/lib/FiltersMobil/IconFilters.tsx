@@ -24,7 +24,7 @@ const IconFilters = () => {
         <g
           id="Page-1"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
           fill-rule="evenodd"
         >
@@ -44,8 +44,8 @@ const IconFilters = () => {
               y2="5"
               id="Path"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             ></line>
             <line
               x1="4"
@@ -54,8 +54,8 @@ const IconFilters = () => {
               y2="12"
               id="Path"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             ></line>
             <line
               x1="14"
@@ -64,8 +64,8 @@ const IconFilters = () => {
               y2="12"
               id="Path"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             ></line>
             <line
               x1="8"
@@ -74,14 +74,14 @@ const IconFilters = () => {
               y2="19"
               id="Path"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
             ></line>
             <circle
               id="Oval"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
               cx="18"
               cy="5"
               r="2"
@@ -89,8 +89,8 @@ const IconFilters = () => {
             <circle
               id="Oval"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
               cx="12"
               cy="12"
               r="2"
@@ -98,8 +98,8 @@ const IconFilters = () => {
             <circle
               id="Oval"
               stroke="#526468"
-              stroke-width="2"
-              stroke-linecap="round"
+              strokeWidth="2"
+              strokeLinecap="round"
               cx="6"
               cy="19"
               r="2"

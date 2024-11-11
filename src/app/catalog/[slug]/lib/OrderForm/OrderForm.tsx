@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import OrderFormSuccess from "./OrderFormSuccess";
-import cmsAxios, {serverAxios} from "@/configs/axios";
+import cmsAxios, { serverAxios } from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import {
@@ -22,7 +22,9 @@ import {
   Title,
   Wrapper,
   Div,
+  DivImg,
 } from "./styles";
+import { useForm } from "react-hook-form";
 
 const customTheme = (outerTheme: Theme) =>
   createTheme({
@@ -63,7 +65,11 @@ const customTheme = (outerTheme: Theme) =>
 
 const OrderForm = ({ id }: { id: string }) => {
   const params = useParams<{ slug: string }>();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { data } = useQuery({
     queryKey: ["productDetail", params.slug],
     queryFn: async () => {
@@ -76,38 +82,33 @@ const OrderForm = ({ id }: { id: string }) => {
   });
 
   const product = data?.data?.[0];
-
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  const [email, setEmail] = useState("");
-
   const [isSuccess, setSuccess] = useState(false);
 
   const outerTheme = useTheme();
 
-  const submit = async () => {
+  const submit = async (data: any) => {
     await serverAxios.post("/add-order", {
       data: {
-        number: number,
-        name: name,
-        email: email,
+        number: data.number,
+        name: data.name,
+        email: data.email,
         product: product?.id,
       },
     });
     setSuccess(true);
   };
-
+  console.log(errors);
   if (isSuccess) {
     return <OrderFormSuccess />;
   }
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      <Wrapper>
-        <Div>
+      <Wrapper onSubmit={handleSubmit(submit)}>
+        <DivImg>
           <Img1 src={imgForm.src} />
           <Img2 src={imgForm2.src} />
-        </Div>
+        </DivImg>
         <Div>
           <Title id={id}>Форма заказа</Title>
           <Description>Введите ваши данные</Description>
@@ -115,60 +116,97 @@ const OrderForm = ({ id }: { id: string }) => {
             <TextField
               fullWidth={true}
               margin="normal"
-              value={name}
               label="ФИО"
               variant="outlined"
               placeholder="Введите ваше ФИО"
-              onChange={(e) => setName(e.target.value)}
+              autoComplete="off"
               sx={{
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#FFFFFF",
                   height: "50px",
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: "8px",
+                  minWidth: "100%",
                 },
               }}
+              {...register("name", {
+                required: true,
+                pattern: /^[A-Za-zА-Яа-я ]+$/i,
+              })}
             />
+            {errors.name?.type === "required" && (
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите ФИО
+              </p>
+            )}
+            {errors.name?.type === "pattern" && (
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите корректное ФИО
+              </p>
+            )}
 
             <TextField
               type="number"
               fullWidth={true}
               margin="normal"
               label="Номер телефона"
-              value={number}
               variant="outlined"
               placeholder="Введите ваш номер телефона"
-              onChange={(e) => setNumber(e.target.value)}
+              autoComplete="off"
               sx={{
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#FFFFFF",
                   height: "50px",
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: "8px",
+                  minWidth: "100%",
                 },
               }}
+              {...register("number", {
+                required: true,
+
+                pattern: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/i,
+              })}
             />
+            {errors.number?.type === "required" && (
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите номер телефона
+              </p>
+            )}
+            {errors.number?.type === "pattern" && (
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите корректный номер телефона
+              </p>
+            )}
 
             <TextField
               fullWidth={true}
               margin="normal"
               label="Почта email"
-              value={email}
               variant="outlined"
               placeholder="Введите ваш email"
-              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="off"
               sx={{
                 "& .MuiOutlinedInput-root": {
                   backgroundColor: "#FFFFFF",
                   height: "50px",
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: "8px",
+                  minWidth: "100%",
                 },
               }}
+              {...register("email", {
+                required: true,
+              })}
             />
+            {errors.email?.type === "required" && (
+              <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                Введите ваш email
+              </p>
+            )}
           </FieldWrapper>
 
-          <Button onClick={() => submit()}>Отправить</Button>
+          <Button type="submit">Отправить</Button>
         </Div>
       </Wrapper>
     </ThemeProvider>

@@ -23,14 +23,12 @@ export const Button = styled.button`
 export const Div = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 `;
-
-
-
 
 export const InputStyled = styled.input`
   border: 1px solid black;
-  margin-bottom: 20px;
+
   margin-top: 5px;
   width: 300px;
   height: 30px;
@@ -41,7 +39,6 @@ export const InputStyled = styled.input`
 
 export const Input = styled.textarea`
   border: 1px solid black;
-  margin-bottom: 20px;
   margin-top: 5px;
   width: 300px;
   height: 100px;
@@ -61,7 +58,6 @@ export const Title = styled.div`
   margin-bottom: 30px;
 `;
 
-
 export const TextSuccess = styled.div`
   font-size: 16px;
   margin-top: 5px;
@@ -69,9 +65,10 @@ export const TextSuccess = styled.div`
 
 export const Text = styled.div`
   font-size: 16px;
+  margin-top: 20px;
 `;
 
-export const ButtonStyled = styled.div`
+export const ButtonStyled = styled.button`
   background-color: #bcc0b4;
   border-radius: 8px;
   height: 40px;
@@ -94,9 +91,7 @@ export const ButtonStyledSuccess = styled.div`
   margin-top: 20px;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   background-color: #fdfaf2;
   padding: 30px;
 `;
-
-

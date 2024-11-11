@@ -44,7 +44,7 @@ const Footer = () => {
         <a href="https://vk.com/magic_vine_syk" target="_blank">
           <ImgIcon src={iconVK.src} />
         </a>
-        <a href="https://wa.me/89121992737?" target="_blank">
+        <a href="https://wa.me/+79121992737?" target="_blank">
           <ImgIcon src={iconWhatsApp.src} />
         </a>
       </WrapperBlockSekond>

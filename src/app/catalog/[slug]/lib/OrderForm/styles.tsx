@@ -2,21 +2,23 @@ import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   display: flex;
   width: 100%;
   justify-content: space-between;
   margin-bottom: 100px;
   background-color: #bcc0b4;
   text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
 
   ${media.phone} {
-    ${layout}
+    justify-content: center;
   }
 `;
 
 export const Div = styled.div`
-  height: 486px;
+  height: 490px;
   position: relative;
   width: 700px;
   display: flex;
@@ -24,7 +26,21 @@ export const Div = styled.div`
   align-items: center;
 
   ${media.phone} {
-    width: auto;
+    height: auto;
+    width: 100%;
+  }
+`;
+
+export const DivImg = styled.div`
+  height: 490px;
+  position: relative;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${media.phone} {
+    display: none;
   }
 `;
 
@@ -57,7 +73,7 @@ export const FieldWrapper = styled.div`
   }
 
   ${media.phone} {
-    width: auto;
+    width: 100%;
   }
 `;
 
@@ -102,6 +118,7 @@ export const Title = styled.div`
 
   ${media.phone} {
     font-size: 30px;
+    padding-top: 26px;
   }
 `;
 
@@ -112,22 +129,25 @@ export const TitleSuccess = styled.div`
 
   ${media.phone} {
     font-size: 30px;
+    padding-top: 80px;
   }
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   background-color: #526468;
   color: white;
   height: 50px;
   font-size: 20px;
   width: 264px;
   margin-top: 36px;
-  text-align: center;
   padding-top: 15px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 
   ${media.phone} {
     font-size: 16px;
+    margin-top: 26px;
   }
 `;
 
@@ -138,6 +158,7 @@ export const Description = styled.div`
 
   ${media.phone} {
     font-size: 16px;
+    margin-bottom: 0;
   }
 `;
 
@@ -148,5 +169,6 @@ export const Text = styled.div`
 
   ${media.phone} {
     font-size: 16px;
+    padding-bottom: 80px;
   }
 `;

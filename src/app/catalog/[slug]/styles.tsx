@@ -19,7 +19,7 @@ export const Title = styled.div`
   ${media.phone} {
     font-size: 30px;
     width: auto;
-    align-items: center;
+    text-align: center;
   }
 `;
 
