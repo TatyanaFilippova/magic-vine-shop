@@ -1,3 +1,4 @@
+import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
@@ -9,6 +10,8 @@ export const Wrapper = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;
   padding: 0 40px;
+
+  ${layout}
 
   ${media.phone} {
     margin-top: 40px;

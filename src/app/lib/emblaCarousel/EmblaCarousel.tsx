@@ -8,7 +8,13 @@ import img4 from "./assets/img 4.png";
 import img5 from "./assets/img 5.png";
 import img6 from "./assets/img 6.png";
 import img7 from "./assets/img 7.png";
-import { Embla, Embla__container, Embla__slide, Img } from "./styles";
+import {
+  Container,
+  Embla,
+  Embla__container,
+  Embla__slide,
+  Img,
+} from "./styles";
 
 const img = [
   img1.src,
@@ -24,17 +30,19 @@ function EmblaCarousel() {
   const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
   return (
-    <Embla ref={emblaRef}>
-      <Embla__container>
-        {img.map((item) => {
-          return (
-            <Embla__slide key={item}>
-              <Img src={item} />
-            </Embla__slide>
-          );
-        })}
-      </Embla__container>
-    </Embla>
+    <Container>
+      <Embla ref={emblaRef}>
+        <Embla__container>
+          {img.map((item) => {
+            return (
+              <Embla__slide key={item}>
+                <Img src={item} />
+              </Embla__slide>
+            );
+          })}
+        </Embla__container>
+      </Embla>
+    </Container>
   );
 }
 export default EmblaCarousel;

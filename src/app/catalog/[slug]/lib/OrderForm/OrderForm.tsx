@@ -22,6 +22,7 @@ import {
   Wrapper,
   Div,
   DivImg,
+  Container,
 } from "./styles";
 import { useForm } from "react-hook-form";
 import useProductDetailApi from "@/api/getProductDetail";
@@ -95,108 +96,111 @@ const OrderForm = ({ id }: { id: string }) => {
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
       <Wrapper onSubmit={handleSubmit(submit)}>
-        <DivImg>
-          <Img1 src={imgForm.src} />
-          <Img2 src={imgForm2.src} />
-        </DivImg>
-        <Div>
-          <Title id={id}>Форма заказа</Title>
-          <Description>Введите ваши данные</Description>
-          <FieldWrapper>
-            <TextField
-              fullWidth={true}
-              margin="normal"
-              label="ФИО"
-              variant="outlined"
-              placeholder="Введите ваше ФИО"
-              autoComplete="off"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  backgroundColor: "#FFFFFF",
-                  height: "50px",
-                  borderTopLeftRadius: "8px",
-                  borderTopRightRadius: "8px",
-                  minWidth: "100%",
-                },
-              }}
-              {...register("name", {
-                required: true,
-                pattern: /^[A-Za-zА-Яа-яё ]+$/i,
-              })}
-            />
-            {errors.name?.type === "required" && (
-              <p role="alert" style={{ color: "red", textAlign: "left" }}>
-                Введите ФИО
-              </p>
-            )}
-            {errors.name?.type === "pattern" && (
-              <p role="alert" style={{ color: "red", textAlign: "left" }}>
-                Введите корректное ФИО
-              </p>
-            )}
+        {" "}
+        <Container>
+          <DivImg>
+            <Img1 src={imgForm.src} />
+            <Img2 src={imgForm2.src} />
+          </DivImg>
+          <Div>
+            <Title id={id}>Форма заказа</Title>
+            <Description>Введите ваши данные</Description>
+            <FieldWrapper>
+              <TextField
+                fullWidth={true}
+                margin="normal"
+                label="ФИО"
+                variant="outlined"
+                placeholder="Введите ваше ФИО"
+                autoComplete="off"
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    backgroundColor: "#FFFFFF",
+                    height: "50px",
+                    borderTopLeftRadius: "8px",
+                    borderTopRightRadius: "8px",
+                    minWidth: "100%",
+                  },
+                }}
+                {...register("name", {
+                  required: true,
+                  pattern: /^[A-Za-zА-Яа-яё ]+$/i,
+                })}
+              />
+              {errors.name?.type === "required" && (
+                <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                  Введите ФИО
+                </p>
+              )}
+              {errors.name?.type === "pattern" && (
+                <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                  Введите корректное ФИО
+                </p>
+              )}
 
-            <TextField
-              type="number"
-              fullWidth={true}
-              margin="normal"
-              label="Номер телефона"
-              variant="outlined"
-              placeholder="Введите ваш номер телефона"
-              autoComplete="off"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  backgroundColor: "#FFFFFF",
-                  height: "50px",
-                  borderTopLeftRadius: "8px",
-                  borderTopRightRadius: "8px",
-                  minWidth: "100%",
-                },
-              }}
-              {...register("number", {
-                required: true,
-                pattern: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/i,
-              })}
-            />
-            {errors.number?.type === "required" && (
-              <p role="alert" style={{ color: "red", textAlign: "left" }}>
-                Введите номер телефона
-              </p>
-            )}
-            {errors.number?.type === "pattern" && (
-              <p role="alert" style={{ color: "red", textAlign: "left" }}>
-                Введите корректный номер телефона
-              </p>
-            )}
+              <TextField
+                type="number"
+                fullWidth={true}
+                margin="normal"
+                label="Номер телефона"
+                variant="outlined"
+                placeholder="Введите ваш номер телефона"
+                autoComplete="off"
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    backgroundColor: "#FFFFFF",
+                    height: "50px",
+                    borderTopLeftRadius: "8px",
+                    borderTopRightRadius: "8px",
+                    minWidth: "100%",
+                  },
+                }}
+                {...register("number", {
+                  required: true,
+                  pattern: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/i,
+                })}
+              />
+              {errors.number?.type === "required" && (
+                <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                  Введите номер телефона
+                </p>
+              )}
+              {errors.number?.type === "pattern" && (
+                <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                  Введите корректный номер телефона
+                </p>
+              )}
 
-            <TextField
-              fullWidth={true}
-              margin="normal"
-              label="Почта email"
-              variant="outlined"
-              placeholder="Введите ваш email"
-              autoComplete="off"
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  backgroundColor: "#FFFFFF",
-                  height: "50px",
-                  borderTopLeftRadius: "8px",
-                  borderTopRightRadius: "8px",
-                  minWidth: "100%",
-                },
-              }}
-              {...register("email", {
-                required: true,
-              })}
-            />
-            {errors.email?.type === "required" && (
-              <p role="alert" style={{ color: "red", textAlign: "left" }}>
-                Введите ваш email
-              </p>
-            )}
-          </FieldWrapper>
+              <TextField
+                fullWidth={true}
+                margin="normal"
+                label="Почта email"
+                variant="outlined"
+                placeholder="Введите ваш email"
+                autoComplete="off"
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    backgroundColor: "#FFFFFF",
+                    height: "50px",
+                    borderTopLeftRadius: "8px",
+                    borderTopRightRadius: "8px",
+                    minWidth: "100%",
+                  },
+                }}
+                {...register("email", {
+                  required: true,
+                })}
+              />
+              {errors.email?.type === "required" && (
+                <p role="alert" style={{ color: "red", textAlign: "left" }}>
+                  Введите ваш email
+                </p>
+              )}
+            </FieldWrapper>
 
-          <Button type="submit">Отправить</Button>
-        </Div>
+            <Button type="submit">Отправить</Button>
+          </Div>
+        </Container>
       </Wrapper>
     </ThemeProvider>
   );

@@ -1,16 +1,22 @@
+import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
 import Link from "next/link";
 import styled from "styled-components";
+
+export const Container = styled.div`
+  position: absolute;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+`
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   height: 146px;
   align-items: center;
-  position: absolute;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
   padding: 0 40px;
+
+  ${layout}
 
   ${media.tablet} {
     text-align: center;

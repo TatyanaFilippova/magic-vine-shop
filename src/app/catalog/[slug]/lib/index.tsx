@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import DescriptionBlock from "./DescriptionBlock/DescriptionBlock";
 import { EmblaCarouselProduct } from "./EmblaCarouselProduct/EmblaCarouselProduct";
@@ -27,39 +27,38 @@ import useProductDetailApi from "@/api/getProductDetail";
 import DescriptionBlockSkeleton from "./DescriptionBlock/DescriptionBlockSkeleton";
 import { EmblaCarouselProductSkeleton } from "./EmblaCarouselProduct/EmblaCarouselProductSkeleton";
 
-
 const ProductDetail = () => {
-    const params = useParams<{ slug: string }>();
-    const { data } = useProductDetailApi(params.slug);
-    if (!data)
-      return (
-        <>
-          <Wrapper>
-            {
-              <WrapperText>
-                <TitleSkeleton />
-                <WrapperHashtags>
-                  <HashtagsSkeleton />
-                </WrapperHashtags>
-                <DescriptionSkeleton />
-              </WrapperText>
-            }
-            <ImgProductSkeleton />
-          </Wrapper>
-          <DescriptionBlockSkeleton />
-          <EmblaCarouselProductSkeleton />
-        </>
-      );
-    return(
-        <>
-         <Wrapper>
+  const params = useParams<{ slug: string }>();
+  const { data } = useProductDetailApi(params.slug);
+  if (!data)
+    return (
+      <>
+        <Wrapper>
+          {
+            <WrapperText>
+              <TitleSkeleton />
+              <WrapperHashtags>
+                <HashtagsSkeleton />
+              </WrapperHashtags>
+              <DescriptionSkeleton />
+            </WrapperText>
+          }
+          <ImgProductSkeleton />
+        </Wrapper>
+        <DescriptionBlockSkeleton />
+        <EmblaCarouselProductSkeleton />
+      </>
+    );
+  return (
+    <>
+      <Wrapper>
         {
           <WrapperText>
             <Title>{data.title}</Title>
             <WrapperHashtags>
               <Hashtags>{data.tag}</Hashtags>
             </WrapperHashtags>
-            <Description>{data.summary}</Description>
+            <Description>🌿{data.summary}🌿</Description>
           </WrapperText>
         }
         <ImgProduct $img={getCmsImage(data?.banner)} />
@@ -84,8 +83,8 @@ const ProductDetail = () => {
         }
       />
       <OrderForm id="orderForm" />
-        </>
-    )
-}
+    </>
+  );
+};
 
-export default ProductDetail
+export default ProductDetail;

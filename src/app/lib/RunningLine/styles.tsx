@@ -1,3 +1,4 @@
+import { layoutFull } from "@/constants/layout";
 import { media } from "@/constants/media";
 import styled from "styled-components";
 
@@ -14,6 +15,8 @@ export const WrapperText = styled.div`
   ${media.phone} {
     display: none;
   }
+
+  ${layoutFull}
 `;
 
 export const Text = styled.div`

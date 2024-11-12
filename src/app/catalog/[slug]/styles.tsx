@@ -1,4 +1,4 @@
-import { layout } from "@/constants/layout";
+import { layout, layoutFull } from "@/constants/layout";
 import { media } from "@/constants/media";
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
@@ -7,6 +7,8 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  ${layoutFull}
 `;
 
 export const Title = styled.div`
@@ -174,6 +176,8 @@ export const Button = styled.div`
 
 export const Shell = styled.div`
   margin: 40px;
+
+  ${layout}
 
   ${media.phone} {
     ${layout}

@@ -1,6 +1,11 @@
+import { layoutFull } from "@/constants/layout";
 import { media } from "@/constants/media";
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
+
+export const Container = styled.div`
+  ${layoutFull}
+`
 
 export const Embla = styled.div`
   overflow: hidden;

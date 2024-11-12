@@ -29,3 +29,15 @@ export const button = css`
     margin-top: 10px;
   }
 `;
+
+export const layoutFull = css`
+  width: 100%;
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+
+  ${media.tablet} {
+    width: 100%;
+    padding: 0 20px;
+  }
+`;

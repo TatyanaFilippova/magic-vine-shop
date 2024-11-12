@@ -1,6 +1,13 @@
+import { layout } from "@/constants/layout";
 import { media } from "@/constants/media";
 import Link from "next/link";
 import styled from "styled-components";
+
+export const Container = styled.div`
+  ${layout}
+  display: flex;
+  justify-content: space-between;
+`;
 
 export const WrapperLogoTitle = styled.div`
   align-items: center;
@@ -81,8 +88,6 @@ export const WrapperBlockTitle = styled.div`
 `;
 
 export const WrapperMain = styled.div`
-  display: flex;
-  justify-content: space-around;
   background-color: #f2eae2;
   padding-top: 30px;
   padding-bottom: 30px;

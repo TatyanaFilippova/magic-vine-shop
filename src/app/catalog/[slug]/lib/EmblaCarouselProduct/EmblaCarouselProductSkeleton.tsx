@@ -1,7 +1,13 @@
 import useEmblaCarousel from "embla-carousel-react";
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Embla, Embla__container, Embla__slide, ImgSkeleton } from "./styles";
+import {
+  Container,
+  Embla,
+  Embla__container,
+  Embla__slide,
+  ImgSkeleton,
+} from "./styles";
 
 const imgSkeleton = Array.from({ length: 3 });
 export function EmblaCarouselProductSkeleton() {
