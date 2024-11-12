@@ -1,7 +1,7 @@
 "use client";
 
 import HomeBanner from "@/app/lib/HomeBanner/HomeBanner";
-import EmblaCarousel from "./lib/EmblaCarousel/EmblaCarousel";
+import EmblaCarousel from "@/app/lib/EmblaCarousel/EmblaCarousel";
 import HomeBlock from "@/app/lib/HomeBlock/HomeBlock";
 import HomeBlockSecond from "@/app/lib/HomeBlockSecond/HomeBlockSecond";
 import HomeTextBlock from "@/app/lib/HomeTextBlock/HomeTextBlock";
@@ -23,7 +23,7 @@ import cmsAxios from "@/configs/axios";
 import { useQuery } from "@tanstack/react-query";
 import HomeBannerSkeleton from "./lib/HomeBanner/HomeBannerSkeleton";
 import RunningLineSkeleton from "./lib/RunningLine/RunningLineSkeleton";
-import EmblaCarouselSkeleton from "./lib/EmblaCarousel/EmblaCarouselSkeleton";
+import EmblaCarouselSkeleton from "@/app/lib/EmblaCarousel/EmblaCarouselSkeleton";
 import HomeBlockSkeleton from "./lib/HomeBlock/HomeBlockSkeleton";
 import HomeBlockSecondSkeleton from "./lib/HomeBlockSecond/HomeBlockSecondSkeleton";
 import HomeTextBlockSkeleton from "./lib/HomeTextBlock/HomeTextBlockSkeleton";
