@@ -31,7 +31,6 @@ export const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 40px;
 
   ${media.phone} {
     height: auto;

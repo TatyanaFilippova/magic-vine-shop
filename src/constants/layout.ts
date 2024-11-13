@@ -38,6 +38,10 @@ export const layoutFull = css`
 
   ${media.tablet} {
     width: 100%;
-    padding: 0 20px;
+    padding: 0;
+  }
+  ${media.phone} {
+    width: 100%;
+    padding: 0;
   }
 `;
